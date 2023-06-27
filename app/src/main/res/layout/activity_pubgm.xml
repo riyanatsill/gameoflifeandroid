@@ -1,0 +1,998 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/scroll"
+    tools:context=".PubgmActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/valo"
+            android:layout_width="0dp"
+            android:layout_height="175dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/pubgm2" />
+        </LinearLayout>
+
+        <!--CARA-->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="450dp"
+            android:id="@+id/first"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/valo">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CARA MEMBELI"
+                    android:textSize="10pt"
+                    android:textStyle="bold"
+                    android:layout_centerHorizontal="true"
+                    android:id="@+id/text1"
+                    android:textAlignment="center" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="UC PUBG MOBILE"
+                    android:textSize="10pt"
+                    android:textStyle="bold"
+                    android:layout_centerHorizontal="true"
+                    android:id="@+id/text2"
+                    android:layout_below="@+id/text1"
+                    android:textAlignment="textStart" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1. Masukkan ID akun kalian"
+                    android:textSize="9pt"
+                    android:layout_alignParentLeft="true"
+                    android:id="@+id/text3"
+                    android:textAlignment="textStart"
+                    android:layout_below="@+id/text2"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2. Pilih Nominal UC yang diinginkan"
+                    android:textSize="9pt"
+                    android:layout_alignParentLeft="true"
+                    android:id="@+id/text4"
+                    android:layout_below="@+id/text3"
+                    android:textAlignment="textStart" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3. Pilih Metode Pembayaran"
+                    android:textSize="9pt"
+                    android:layout_alignParentLeft="true"
+                    android:id="@+id/text5"
+                    android:layout_below="@+id/text4"
+                    android:textAlignment="textStart" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="4. Masukkan alamat e-mail kalian untuk rincian pesanan"
+                    android:textSize="9pt"
+                    android:layout_centerHorizontal="true"
+                    android:id="@+id/text6"
+                    android:layout_below="@+id/text5"
+                    android:textAlignment="textStart" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="5. Konfirmasi dan pastikan membayar dengan Jumlah Total Harga yang benar"
+                    android:textSize="9pt"
+                    android:layout_centerHorizontal="true"
+                    android:id="@+id/text7"
+                    android:layout_below="@+id/text6"
+                    android:textAlignment="textStart" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="6. Tunggu sampai 1-15 Menit. UC akan masuk secepat kilat"
+                    android:textSize="9pt"
+                    android:layout_centerHorizontal="true"
+                    android:id="@+id/text8"
+                    android:layout_below="@+id/text7"
+                    android:textAlignment="textStart" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="(Mohon kesediannya menunggu, UC diproses secara manual maka disesuaikan dengan antrian)"
+                    android:textSize="9pt"
+                    android:layout_alignParentLeft="true"
+                    android:id="@+id/text9"
+                    android:textAlignment="textStart"
+                    android:layout_below="@+id/text8" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <!--ID-->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="130dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/second"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/first">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:layout_weight="1">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:background="@color/bg"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="MASUKAN DATA ANDA"
+                        android:textSize="10pt"
+                        android:textStyle="bold"
+                        android:layout_centerHorizontal="true"
+                        android:id="@+id/cara"
+                        android:textAlignment="center" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/outlinedTextField1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColorHint="@color/black"
+                        android:hint="ID"
+                        android:layout_below="@+id/cara"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <!--PRODUCT-->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/riot"
+            android:padding="10dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/second">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:background="@color/bg"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="PILIH PRODUK"
+                    android:textSize="10pt"
+                    android:textStyle="bold"
+                    android:layout_centerHorizontal="true"
+                    android:id="@+id/caraa"
+                    android:textAlignment="center" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <!--product 1-->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="220dp"
+            android:id="@+id/product"
+            android:layout_marginTop="2dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/riot">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                app:cardBackgroundColor="@color/bg"
+                android:layout_height="wrap_content"
+                android:id="@+id/pubgmCard"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                app:cardElevation="20dp"
+                app:cardCornerRadius="20dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/pubgmName"
+                        android:text="100 UC"
+                        android:textSize="9pt"
+                        android:layout_marginTop="10dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/pubgmImage"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/pubgmName2"
+                        android:text="Rp. 10.000"
+                        android:textStyle="italic"
+                        android:textSize="9pt"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/pubgmName"/>
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:id="@+id/pubgmImage"
+                        android:src="@drawable/uc"
+                        android:layout_marginTop="15dp"
+                        android:layout_centerHorizontal="true"/>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/bg"
+                android:layout_margin="10dp"
+                android:id="@+id/pubgmCard2"
+                android:layout_weight="1"
+                app:cardElevation="20dp"
+                app:cardCornerRadius="20dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/pubgmName3"
+                        android:text="250 UC"
+                        android:textSize="20sp"
+                        android:layout_marginTop="10dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/pubgmImage2"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="italic"
+                        android:text="Rp. 22.000"
+                        android:textSize="20sp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/pubgmName3"/>
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:id="@+id/pubgmImage2"
+                        android:src="@drawable/uc"
+                        android:layout_marginTop="15dp"
+                        android:layout_centerHorizontal="true"/>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <!--product 2-->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="220dp"
+            android:id="@+id/product2"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/product">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/bg"
+                android:id="@+id/pubgmCard3"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                app:cardElevation="20dp"
+                app:cardCornerRadius="20dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/pubgmName4"
+                        android:text="500 UC"
+                        android:textSize="9pt"
+                        android:layout_marginTop="10dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/pubgmImage3"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rp. 50.000"
+                        android:textStyle="italic"
+                        android:textSize="9pt"
+                        android:layout_marginTop="10dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/pubgmName4"/>
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:id="@+id/pubgmImage3"
+                        android:src="@drawable/uc"
+                        android:layout_marginTop="15dp"
+                        android:layout_centerHorizontal="true"/>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/bg"
+                android:id="@+id/pubgmCard4"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                app:cardElevation="20dp"
+                app:cardCornerRadius="20dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/pubgmName5"
+                        android:text="780 UC"
+                        android:textSize="20sp"
+                        android:layout_marginTop="10dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/pubgmImage4"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="italic"
+                        android:text="Rp. 78.000"
+                        android:textSize="20sp"
+                        android:layout_marginTop="10dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/pubgmName5"/>
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:id="@+id/pubgmImage4"
+                        android:src="@drawable/uc"
+                        android:layout_marginTop="15dp"
+                        android:layout_centerHorizontal="true"/>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <!--product 3-->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="220dp"
+            android:id="@+id/product3"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/product2">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/bg"
+                android:id="@+id/pubgmCard5"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                app:cardElevation="20dp"
+                app:cardCornerRadius="20dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/pubgmName6"
+                        android:text="1500 UC"
+                        android:textSize="9pt"
+                        android:layout_marginTop="10dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/pubgmImage5"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rp. 145.000"
+                        android:textStyle="italic"
+                        android:textSize="9pt"
+                        android:layout_marginTop="10dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/pubgmName6"/>
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:id="@+id/pubgmImage5"
+                        android:src="@drawable/uc"
+                        android:layout_marginTop="15dp"
+                        android:layout_centerHorizontal="true"/>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/bg"
+                android:id="@+id/pubgmCard6"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                app:cardElevation="20dp"
+                app:cardCornerRadius="20dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/pubgmName7"
+                        android:text="2100 UC"
+                        android:textSize="20sp"
+                        android:layout_marginTop="10dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/pubgmImage6"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="italic"
+                        android:text="Rp. 200.000"
+                        android:textSize="20sp"
+                        android:layout_marginTop="10dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/pubgmName7"/>
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:id="@+id/pubgmImage6"
+                        android:src="@drawable/uc"
+                        android:layout_marginTop="15dp"
+                        android:layout_centerHorizontal="true"/>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <!--product 4-->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="220dp"
+            android:id="@+id/product4"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/product3">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/bg"
+                android:id="@+id/pubgmCard7"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                app:cardElevation="20dp"
+                app:cardCornerRadius="20dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/pubgmName8"
+                        android:text="2700 UC"
+                        android:textSize="9pt"
+                        android:layout_marginTop="10dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/pubgmImage7"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rp. 260.000"
+                        android:textStyle="italic"
+                        android:textSize="9pt"
+                        android:layout_marginTop="10dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/pubgmName8"/>
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:id="@+id/pubgmImage7"
+                        android:src="@drawable/uc"
+                        android:layout_marginTop="15dp"
+                        android:layout_centerHorizontal="true"/>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/bg"
+                android:id="@+id/pubgmCard8"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                app:cardElevation="20dp"
+                app:cardCornerRadius="20dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/pubgmName9"
+                        android:text="3500 UC"
+                        android:textSize="20sp"
+                        android:layout_marginTop="10dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/pubgmImage8"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="italic"
+                        android:text="Rp. 400.000"
+                        android:textSize="20sp"
+                        android:layout_marginTop="10dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/pubgmName9"/>
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:id="@+id/pubgmImage8"
+                        android:src="@drawable/uc"
+                        android:layout_marginTop="15dp"
+                        android:layout_centerHorizontal="true"/>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <!--PAYMENT-->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/riot2"
+            android:padding="10dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/product4">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:background="@color/bg"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="PILIH PEMBAYARAN"
+                    android:textSize="10pt"
+                    android:textStyle="bold"
+                    android:layout_centerHorizontal="true"
+                    android:id="@+id/caraaa"
+                    android:textAlignment="center" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <!--BCA-->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="1dp"
+            android:id="@+id/payment"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/riot2">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                app:cardBackgroundColor="@color/bg"
+                android:id="@+id/bca"
+                android:layout_weight="1"
+                app:cardElevation="20dp"
+                app:cardCornerRadius="20dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:id="@+id/bcaimage"
+                        android:src="@drawable/bca"
+                        android:layout_centerHorizontal="true"/>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+        <!--MANDIRI-->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:id="@+id/payment2"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/payment">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                app:cardBackgroundColor="@color/bg"
+                android:id="@+id/mandiri"
+                android:layout_weight="1"
+                app:cardElevation="20dp"
+                app:cardCornerRadius="20dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:id="@+id/mandiriimage"
+                        android:src="@drawable/mandiri"
+                        android:layout_centerHorizontal="true"/>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+        <!--SHOPEEPAY-->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:id="@+id/payment3"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/payment2">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                app:cardBackgroundColor="@color/bg"
+                android:layout_weight="1"
+                android:id="@+id/shopeepay"
+                app:cardElevation="20dp"
+                app:cardCornerRadius="20dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:id="@+id/shopeepayimage"
+                        android:src="@drawable/sp"
+                        android:layout_centerHorizontal="true"/>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+        <!--GOPAY-->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:id="@+id/payment4"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/payment3">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                app:cardBackgroundColor="@color/bg"
+                android:layout_weight="1"
+                android:id="@+id/gopay"
+                app:cardElevation="20dp"
+                app:cardCornerRadius="20dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:id="@+id/gopayimage"
+                        android:src="@drawable/gopay"
+                        android:layout_centerHorizontal="true"/>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+        <!--DANA-->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:id="@+id/payment5"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/payment4">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                app:cardBackgroundColor="@color/bg"
+                android:layout_weight="1"
+                android:id="@+id/dana"
+                app:cardElevation="20dp"
+                app:cardCornerRadius="20dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:id="@+id/danaimage"
+                        android:src="@drawable/dana"
+                        android:layout_centerHorizontal="true"/>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+        <!--OVO-->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:id="@+id/payment6"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/payment5">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                app:cardBackgroundColor="@color/bg"
+                android:layout_weight="1"
+                android:id="@+id/ovo"
+                app:cardElevation="20dp"
+                app:cardCornerRadius="20dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:id="@+id/ovoimage"
+                        android:src="@drawable/ovo"
+                        android:layout_centerHorizontal="true"/>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+        <!--EMAIL-->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/isiemail"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/payment6">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:layout_weight="1">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:background="@color/bg"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="MASUKAN EMAIL ANDA"
+                        android:textSize="10pt"
+                        android:textStyle="bold"
+                        android:layout_centerHorizontal="true"
+                        android:id="@+id/email1"
+                        android:textAlignment="center" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="EMAIL"
+                        android:layout_below="@+id/email1"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <!--SUBMIT-->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="8dp"
+            android:id="@+id/button"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/isiemail">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:layout_weight="1">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/bluee"
+                        android:text="SUBMIT"
+                        android:textSize="10pt"
+                        android:textStyle="bold"
+                        android:layout_centerHorizontal="true"
+                        android:id="@+id/submit"
+                        android:textAlignment="center" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <!--FOOTER-->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            android:id="@+id/footer"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                app:cardElevation="20dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:background="@color/black2"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:id="@+id/footerGambar"
+                        android:src="@drawable/logo"
+                        android:layout_marginTop="15dp"
+                        android:layout_centerHorizontal="true"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/footerNama"
+                        android:text="GAMEOFLIFE"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:layout_marginTop="10dp"
+                        android:layout_below="@id/footerGambar"
+                        android:layout_centerHorizontal="true"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/footer2"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:text="©2023 GAMEOFLIFE. All Rights Reserved"
+                        android:layout_marginTop="10dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_above="@+id/scroll"
+                        android:layout_below="@+id/footerNama"
+                        tools:ignore="NotSibling" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
