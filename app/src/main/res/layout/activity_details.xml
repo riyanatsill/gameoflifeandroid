@@ -6,4 +6,219 @@
     android:layout_height="match_parent"
     tools:context=".Details">
 
+    <LinearLayout
+        android:id="@+id/second"
+        android:layout_width="0dp"
+        android:layout_height="480dp"
+        android:padding="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/footer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.648">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:cardBackgroundColor="@color/black2">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/cara"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_centerHorizontal="true"
+                    android:text="DETAIL TRANSACTION"
+                    android:textColor="@color/white"
+                    android:textAlignment="center"
+                    android:textSize="10pt"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/outlinedTextField1"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                    android:layout_width="300dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/cara"
+                    android:textColorHint="@color/black"
+                    android:background="@color/white">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/ke1"
+                        android:layout_width="300dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_height="wrap_content"
+                        android:editable="false"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/outlinedTextField2"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                    android:layout_width="300dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/outlinedTextField1"
+                    android:textColorHint="@color/black"
+                    android:background="@color/white">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="300dp"
+                        android:id="@+id/ke2"
+                        android:layout_centerHorizontal="true"
+                        android:layout_height="wrap_content"
+                        android:editable="false"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/outlinedTextField3"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                    android:layout_width="300dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/outlinedTextField2"
+                    android:textColorHint="@color/black"
+                    android:background="@color/white">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="300dp"
+                        android:id="@+id/ke3"
+                        android:layout_centerHorizontal="true"
+                        android:layout_height="wrap_content"
+                        android:editable="false"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/outlinedTextField4"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                    android:layout_width="300dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/outlinedTextField3"
+                    android:textColorHint="@color/black"
+                    android:background="@color/white">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="300dp"
+                        android:id="@+id/ke4"
+                        android:layout_centerHorizontal="true"
+                        android:layout_height="wrap_content"
+                        android:editable="false"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/outlinedTextField5"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                    android:layout_width="300dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/outlinedTextField4"
+                    android:textColorHint="@color/black"
+                    android:background="@color/white">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="300dp"
+                        android:id="@+id/ke5"
+                        android:layout_centerHorizontal="true"
+                        android:layout_height="wrap_content"
+                        android:editable="false"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/outlinedTextField6"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                    android:layout_width="300dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/outlinedTextField5"
+                    android:textColorHint="@color/black"
+                    android:background="@color/white">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="300dp"
+                        android:id="@+id/ke6"
+                        android:layout_centerHorizontal="true"
+                        android:layout_height="wrap_content"
+                        android:editable="false"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:id="@+id/submit1"
+                    android:backgroundTint="@color/bluee"
+                    android:text="SUBMIT"
+                    android:textSize="8pt"
+                    android:textStyle="bold"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@+id/outlinedTextField6"
+                    android:textAlignment="center" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/footer"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent">
+        <!--        app:layout_constraintTop_toBottomOf="@+id/button">-->
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:cardElevation="20dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/black2">
+
+                <ImageView
+                    android:id="@+id/footerGambar"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="15dp"
+                    android:src="@drawable/logo" />
+
+                <TextView
+                    android:id="@+id/footerNama"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/footerGambar"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:text="GAMEOFLIFE"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/footer2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/scroll"
+                    android:layout_below="@+id/footerNama"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:text="©2023 GAMEOFLIFE. All Rights Reserved"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    tools:ignore="NotSibling" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

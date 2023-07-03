@@ -15,6 +15,7 @@
       android:layout_marginStart="40dp"
       android:layout_marginEnd="40dp"
       android:hint="Enter Username"
+      android:textColorHint="@color/black"
       app:boxBackgroundColor="@color/bg"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
@@ -22,11 +23,13 @@
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
       app:layout_constraintVertical_bias="0.467"
+      app:startIconTint="@color/black"
       app:startIconDrawable="@drawable/baseline_person_24">
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/username"
         android:layout_width="match_parent"
+        android:textColor="@color/black"
         android:layout_height="wrap_content" />
   </com.google.android.material.textfield.TextInputLayout>
 
@@ -40,9 +43,9 @@
       android:layout_marginTop="20dp"
       android:layout_marginEnd="40dp"
       android:layout_marginBottom="217dp"
+      android:textColorHint="@color/black"
       android:hint="Enter password"
       app:boxBackgroundColor="@color/bg"
-      app:endIconMode="password_toggle"
       app:endIconTint="@color/black"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
@@ -54,6 +57,8 @@
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/password"
         android:layout_width="match_parent"
+        android:textColor="@color/black"
+        android:inputType="textPassword"
         android:layout_height="wrap_content"
         tools:ignore="SpeakableTextPresentCheck" />
   </com.google.android.material.textfield.TextInputLayout>
@@ -66,6 +71,7 @@
       android:layout_marginTop="28dp"
       android:layout_marginBottom="23dp"
       android:backgroundTint="@color/bluee"
+      android:textColor="@color/white"
       android:text="Sign In"
       android:textSize="10pt"
       app:layout_constraintBottom_toTopOf="@+id/textView"

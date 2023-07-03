@@ -19,6 +19,9 @@ import com.google.firebase.database.ValueEventListener;
 
 public class LoginActivity extends AppCompatActivity {
     DatabaseReference mDatabase;
+    Button Login;
+    EditText edt_username, edt_password;
+    TextView Register;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         mDatabase = FirebaseDatabase.getInstance().getReference();
@@ -26,10 +29,10 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        final EditText edt_username = (EditText) findViewById(R.id.username);
-        final EditText edt_password = (EditText) findViewById(R.id.password);
-        final Button Login =  findViewById(R.id.btnLogin);
-        final TextView Register =  findViewById(R.id.btnRegister);
+        edt_username = findViewById(R.id.username);
+        edt_password = findViewById(R.id.password);
+        Login =  findViewById(R.id.btnLogin);
+        Register =  findViewById(R.id.btnRegister);
 
         Login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,7 +51,11 @@ public class LoginActivity extends AppCompatActivity {
 
                                 if (getpassword != null && getpassword.equals(passwordTxt)) {
                                     Toast.makeText(LoginActivity.this, "Login Successfully", Toast.LENGTH_SHORT).show();
-                                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
+
+                                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                    intent.putExtra("email", userSnapshot.child("email").getValue(String.class));
+                                    intent.putExtra("username", usernameTxt);
+                                    startActivity(intent);
                                     finish();
                                 } else {
                                     Toast.makeText(LoginActivity.this, "Wrong Password", Toast.LENGTH_SHORT).show();

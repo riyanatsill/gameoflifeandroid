@@ -1,16 +1,59 @@
 package com.example.gameoflife1;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+
+import com.example.gameoflife1.model.MlModel;
+import com.example.gameoflife1.model.ProductModel;
+import com.example.gameoflife1.model.PubgmModel;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class PubgmActivity extends AppCompatActivity {
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_item2, menu);
+        return true;
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        int itemId = item.getItemId();
+
+        if (itemId == R.id.home) {
+            startActivity(new Intent(PubgmActivity.this, MainActivity.class));
+            return true;
+        }else if (itemId == R.id.history) {
+            startActivity(new Intent(PubgmActivity.this, HistoryActivity.class));
+            return true;
+        } else {
+            return super.onOptionsItemSelected(item);
+        }
+    }
+
     String value;
+    String Payment;
     int index = 0;
     int naon = 0;
+
+    DatabaseReference mDatabase;
+    ProductModel model;
+    private PubgmModel pubgmModel = new PubgmModel();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +73,50 @@ public class PubgmActivity extends AppCompatActivity {
         final CardView card12 = findViewById(R.id.dana);
         final CardView card13 = findViewById(R.id.shopeepay);
         final CardView card14 = findViewById(R.id.ovo);
+
+        final EditText pubgmid = findViewById(R.id.p1);
+        final EditText email = findViewById(R.id.pemail);
+
+        final Button submit = findViewById(R.id.submit);
+        model = new ProductModel();
+
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mDatabase = FirebaseDatabase.getInstance().getReference("Product");
+                String id = pubgmid.getText().toString().trim();
+                String id3 = email.getText().toString().trim();
+                mDatabase.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot data:snapshot.getChildren()){
+                            if (data.child("product").getValue(String.class).equals(value)){
+                                model.setPrice(data.child("price").getValue(String.class));
+                                model.setGame_id(data.child("game_id").getValue(String.class));
+                                model.setProduct(data.child("product").getValue(String.class));
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+                String game = "PUBG Mobile";
+                pubgmModel.setEmail(id3);
+                pubgmModel.setGame("PUBG Mobile");
+                pubgmModel.setProduct(value);
+                pubgmModel.setId(id);
+                pubgmModel.setPayment(Payment);
+                pubgmModel.setUsername(getIntent().getStringExtra("username"));
+                Intent intent = new Intent(PubgmActivity.this, Details.class);
+                intent.putExtra("username", getIntent().getStringExtra("username"));
+                intent.putExtra("pubgmModel", pubgmModel);
+                intent.putExtra("game", game);
+                startActivity(intent);
+            }
+        });
 
         card1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -172,7 +259,7 @@ public class PubgmActivity extends AppCompatActivity {
             public void onClick(View v) {
                 naon = 1;
                 card9.setCardBackgroundColor(getColor(R.color.bg2));
-                value = "BCA";
+                Payment = "BCA";
 
                 card10.setCardBackgroundColor(getColor(R.color.bg));
                 card11.setCardBackgroundColor(getColor(R.color.bg));
@@ -186,7 +273,7 @@ public class PubgmActivity extends AppCompatActivity {
             public void onClick(View v) {
                 naon = 2;
                 card10.setCardBackgroundColor(getColor(R.color.bg2));
-                value = "MANDIRI";
+                Payment = "MANDIRI";
 
                 card9.setCardBackgroundColor(getColor(R.color.bg));
                 card11.setCardBackgroundColor(getColor(R.color.bg));
@@ -200,7 +287,7 @@ public class PubgmActivity extends AppCompatActivity {
             public void onClick(View v) {
                 naon = 3;
                 card11.setCardBackgroundColor(getColor(R.color.bg2));
-                value = "GOPAY";
+                Payment = "GOPAY";
 
                 card9.setCardBackgroundColor(getColor(R.color.bg));
                 card10.setCardBackgroundColor(getColor(R.color.bg));
@@ -214,7 +301,7 @@ public class PubgmActivity extends AppCompatActivity {
             public void onClick(View v) {
                 naon = 4;
                 card12.setCardBackgroundColor(getColor(R.color.bg2));
-                value = "DANA";
+                Payment = "DANA";
 
                 card9.setCardBackgroundColor(getColor(R.color.bg));
                 card10.setCardBackgroundColor(getColor(R.color.bg));
@@ -228,7 +315,7 @@ public class PubgmActivity extends AppCompatActivity {
             public void onClick(View v) {
                 naon = 5;
                 card13.setCardBackgroundColor(getColor(R.color.bg2));
-                value = "SHOPEEPAY";
+                Payment = "SHOPEEPAY";
 
                 card9.setCardBackgroundColor(getColor(R.color.bg));
                 card10.setCardBackgroundColor(getColor(R.color.bg));
@@ -242,7 +329,7 @@ public class PubgmActivity extends AppCompatActivity {
             public void onClick(View v) {
                 naon = 6;
                 card14.setCardBackgroundColor(getColor(R.color.bg2));
-                value = "OVO";
+                Payment = "OVO";
 
                 card9.setCardBackgroundColor(getColor(R.color.bg));
                 card10.setCardBackgroundColor(getColor(R.color.bg));
@@ -252,8 +339,5 @@ public class PubgmActivity extends AppCompatActivity {
             }
         });
 
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().hide();
-        }
     }
 }
