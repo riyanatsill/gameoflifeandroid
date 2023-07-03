@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.denzcoskun.imageslider.ImageSlider;
@@ -59,6 +60,8 @@ public class MainActivity extends AppCompatActivity {
     CardView genshin;
     CardView ml;
     CardView pubgm;
+    private Button priceList;
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,6 +82,16 @@ public class MainActivity extends AppCompatActivity {
         genshin = findViewById(R.id.genshinCard);
         ml = findViewById(R.id.mlCard);
         pubgm = findViewById(R.id.pubgmCard);
+
+        priceList = findViewById(R.id.priceList);
+
+        priceList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, PriceList.class);
+                startActivity(intent);
+            }
+        });
 
         valorant.setOnClickListener(new View.OnClickListener() {
             @Override
