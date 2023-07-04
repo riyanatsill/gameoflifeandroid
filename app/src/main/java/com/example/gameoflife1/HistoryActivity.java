@@ -56,7 +56,6 @@ public class HistoryActivity extends AppCompatActivity {
         mlModelList = new ArrayList<>();
 
         transactionModel.setUsername(username);
-        Log.d("username", transactionModel.getUsername());
 
         context = this;
 

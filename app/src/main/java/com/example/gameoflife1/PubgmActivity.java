@@ -4,22 +4,30 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
+import com.example.gameoflife1.controller.ProductController;
 import com.example.gameoflife1.model.MlModel;
 import com.example.gameoflife1.model.ProductModel;
 import com.example.gameoflife1.model.PubgmModel;
+import com.example.gameoflife1.model.ValorantModel;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class PubgmActivity extends AppCompatActivity {
 
@@ -54,8 +62,18 @@ public class PubgmActivity extends AppCompatActivity {
     DatabaseReference mDatabase;
     ProductModel model;
     private PubgmModel pubgmModel = new PubgmModel();
+    private List<ProductModel> productModelList;
+    private Context context;
+    private ProductController productController;
+    
+    TextView pProduct2, pProduct3, pProduct4, pProduct5, pProduct6, pProduct7, pProduct8, pProduct9,
+            pPrice2, pPrice3, pPrice4, pPrice5, pPrice6, pPrice7, pPrice8, pPrice9;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        productController = new ProductController();
+        productModelList = new ArrayList<>();
+        context = this;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pubgm);
 
@@ -79,6 +97,62 @@ public class PubgmActivity extends AppCompatActivity {
 
         final Button submit = findViewById(R.id.submit);
         model = new ProductModel();
+
+        pProduct2 = findViewById(R.id.PubgmProduct);
+        pProduct3 = findViewById(R.id.PubgmProduct2);
+        pProduct4 = findViewById(R.id.PubgmProduct3);
+        pProduct5 = findViewById(R.id.PubgmProduct4);
+        pProduct6 = findViewById(R.id.PubgmProduct5);
+        pProduct7 = findViewById(R.id.PubgmProduct6);
+        pProduct8 = findViewById(R.id.PubgmProduct7);
+        pProduct9 = findViewById(R.id.PubgmProduct8);
+
+        pPrice2 = findViewById(R.id.PubgmPrice);
+        pPrice3 = findViewById(R.id.PubgmPrice2);
+        pPrice4 = findViewById(R.id.PubgmPrice3);
+        pPrice5 = findViewById(R.id.PubgmPrice4);
+        pPrice6 = findViewById(R.id.PubgmPrice5);
+        pPrice7 = findViewById(R.id.PubgmPrice6);
+        pPrice8 = findViewById(R.id.PubgmPrice7);
+        pPrice9 = findViewById(R.id.PubgmPrice8);
+
+        for (int i = 0; i < 8; i++) {
+            String productID = "PubgmProduct" + (i+2);
+            String priceID = "PubgmPrice" + i;
+
+            TextView test = findViewById(R.id.PubgmPrice);
+            Log.d("test", String.valueOf(test));
+
+
+            switch (i){
+                case 0:
+                    productController.setTextValue(productModelList, "2", pProduct2, i, pPrice2);
+                    break;
+                case 1:
+                    productController.setTextValue(productModelList, "2", pProduct3, i, pPrice3);
+                    break;
+                case 2:
+                    productController.setTextValue(productModelList, "2", pProduct4, i, pPrice4);
+                    break;
+                case 3:
+                    productController.setTextValue(productModelList, "2", pProduct5, i, pPrice5);
+                    break;
+                case 4:
+                    productController.setTextValue(productModelList, "2", pProduct6, i, pPrice6);
+                    break;
+                case 5:
+                    productController.setTextValue(productModelList, "2", pProduct7, i, pPrice7);
+                    break;
+                case 6:
+                    productController.setTextValue(productModelList, "2", pProduct8, i, pPrice8);
+                    break;
+                case 7:
+                    productController.setTextValue(productModelList, "2", pProduct9, i, pPrice9);
+                    break;
+            }
+
+//            productController.setTextValue(productModelList, "1", productTextView, priceTextView, i);
+        }
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override

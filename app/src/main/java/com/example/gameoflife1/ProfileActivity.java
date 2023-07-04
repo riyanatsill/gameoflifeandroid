@@ -3,11 +3,13 @@ package com.example.gameoflife1;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.gameoflife1.controller.UserController;
 import com.example.gameoflife1.model.UserModel;
@@ -46,6 +48,13 @@ public class ProfileActivity extends AppCompatActivity {
                 String email2 = email.getText().toString();
                 String password = newpassword.getText().toString();
                 userController.updatePass(username2, email2, password, context);
+
+                Intent intent = new Intent(ProfileActivity.this, LoginActivity.class);
+                Toast.makeText(ProfileActivity.this, "Update Password Successfully", Toast.LENGTH_SHORT).show();
+                getIntent().removeExtra("email");
+                getIntent().removeExtra("username");
+                startActivity(intent);
+                finish();
             }
         });
     }

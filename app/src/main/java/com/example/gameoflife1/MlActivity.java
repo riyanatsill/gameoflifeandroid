@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,7 +13,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
+import com.example.gameoflife1.controller.ProductController;
 import com.example.gameoflife1.model.MlModel;
 import com.example.gameoflife1.model.ProductModel;
 import com.example.gameoflife1.model.ValorantModel;
@@ -21,6 +24,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MlActivity extends AppCompatActivity {
 
@@ -55,8 +61,20 @@ public class MlActivity extends AppCompatActivity {
     DatabaseReference mDatabase;
     ProductModel model;
     private MlModel mlModel = new MlModel();
+
+    private List<ProductModel> productModelList;
+    private Context context;
+    private ProductController productController;
+
+    TextView mProduct2, mProduct3, mProduct4, mProduct5, mProduct6, mProduct7, mProduct8, mProduct9,
+            mPrice2, mPrice3, mPrice4, mPrice5, mPrice6, mPrice7, mPrice8, mPrice9;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        productController = new ProductController();
+        productModelList = new ArrayList<>();
+        context = this;
+        
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ml);
 
@@ -81,6 +99,62 @@ public class MlActivity extends AppCompatActivity {
 
         final Button submit = findViewById(R.id.submit);
         model = new ProductModel();
+
+        mProduct2 = findViewById(R.id.MlProduct);
+        mProduct3 = findViewById(R.id.MlProduct2);
+        mProduct4 = findViewById(R.id.MlProduct3);
+        mProduct5 = findViewById(R.id.MlProduct4);
+        mProduct6 = findViewById(R.id.MlProduct5);
+        mProduct7 = findViewById(R.id.MlProduct6);
+        mProduct8 = findViewById(R.id.MlProduct7);
+        mProduct9 = findViewById(R.id.MlProduct8);
+
+        mPrice2 = findViewById(R.id.MlPrice);
+        mPrice3 = findViewById(R.id.MlPrice2);
+        mPrice4 = findViewById(R.id.MlPrice3);
+        mPrice5 = findViewById(R.id.MlPrice4);
+        mPrice6 = findViewById(R.id.MlPrice5);
+        mPrice7 = findViewById(R.id.MlPrice6);
+        mPrice8 = findViewById(R.id.MlPrice7);
+        mPrice9 = findViewById(R.id.MlPrice8);
+
+        for (int i = 0; i < 8; i++) {
+            String productID = "MlProduct" + (i+2);
+            String priceID = "MlPrice" + i;
+
+            TextView test = findViewById(R.id.MlPrice);
+            Log.d("test", String.valueOf(test));
+
+
+            switch (i){
+                case 0:
+                    productController.setTextValue(productModelList, "3", mProduct2, i, mPrice2);
+                    break;
+                case 1:
+                    productController.setTextValue(productModelList, "3", mProduct3, i, mPrice3);
+                    break;
+                case 2:
+                    productController.setTextValue(productModelList, "3", mProduct4, i, mPrice4);
+                    break;
+                case 3:
+                    productController.setTextValue(productModelList, "3", mProduct5, i, mPrice5);
+                    break;
+                case 4:
+                    productController.setTextValue(productModelList, "3", mProduct6, i, mPrice6);
+                    break;
+                case 5:
+                    productController.setTextValue(productModelList, "3", mProduct7, i, mPrice7);
+                    break;
+                case 6:
+                    productController.setTextValue(productModelList, "3", mProduct8, i, mPrice8);
+                    break;
+                case 7:
+                    productController.setTextValue(productModelList, "3", mProduct9, i, mPrice9);
+                    break;
+            }
+
+//            productController.setTextValue(productModelList, "1", productTextView, priceTextView, i);
+        }
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override

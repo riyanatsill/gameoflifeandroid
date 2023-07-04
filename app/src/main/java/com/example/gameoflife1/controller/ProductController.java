@@ -93,7 +93,7 @@ public class ProductController {
             }
         });
     }
-    public void setTextView(int position, TextView product, TextView price, TableRow row, SectionAdapter.SectionViewHolder holder){
+    public void setTextView(int position, TextView product, TextView price, TableRow row, SectionAdapter.LinearViewHolder holder){
         mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

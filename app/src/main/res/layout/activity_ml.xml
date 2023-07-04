@@ -174,6 +174,7 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
                             android:id="@+id/mlid"
+                            android:inputType="number"
                             android:layout_height="wrap_content"
                             />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -189,6 +190,7 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
                             android:id="@+id/mlzone"
+                            android:inputType="number"
                             android:layout_height="wrap_content"
                             />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -256,8 +258,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/mlName"
-                        android:text="100 Diamond"
+                        android:id="@+id/MlProduct"
                         android:textSize="9pt"
                         android:layout_marginTop="10dp"
                         android:layout_centerHorizontal="true"
@@ -265,12 +266,11 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/mlName2"
-                        android:text="Rp. 10.000"
+                        android:id="@+id/MlPrice"
                         android:textStyle="italic"
                         android:textSize="9pt"
                         android:layout_centerHorizontal="true"
-                        android:layout_below="@+id/mlName"/>
+                        android:layout_below="@+id/MlProduct"/>
 
                     <ImageView
                         android:layout_width="match_parent"
@@ -299,7 +299,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/mlName3"
+                        android:id="@+id/MlProduct2"
                         android:text="250 Diamond"
                         android:textSize="20sp"
                         android:layout_marginTop="10dp"
@@ -309,10 +309,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textStyle="italic"
+                        android:id="@+id/MlPrice2"
                         android:text="Rp. 22.000"
                         android:textSize="20sp"
                         android:layout_centerHorizontal="true"
-                        android:layout_below="@+id/mlName3"/>
+                        android:layout_below="@+id/MlProduct2"/>
 
                     <ImageView
                         android:layout_width="match_parent"
@@ -354,7 +355,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/mlName4"
+                        android:id="@+id/MlProduct3"
                         android:text="500 Diamond"
                         android:textSize="9pt"
                         android:layout_marginTop="10dp"
@@ -364,11 +365,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Rp. 50.000"
+                        android:id="@+id/MlPrice3"
                         android:textStyle="italic"
                         android:textSize="9pt"
                         android:layout_marginTop="10dp"
                         android:layout_centerHorizontal="true"
-                        android:layout_below="@+id/mlName4"/>
+                        android:layout_below="@+id/MlProduct3"/>
 
                     <ImageView
                         android:layout_width="match_parent"
@@ -397,7 +399,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/mlName5"
+                        android:id="@+id/MlProduct4"
                         android:text="780 Diamond"
                         android:textSize="20sp"
                         android:layout_marginTop="10dp"
@@ -408,10 +410,11 @@
                         android:layout_height="wrap_content"
                         android:textStyle="italic"
                         android:text="Rp. 78.000"
+                        android:id="@+id/MlPrice4"
                         android:textSize="20sp"
                         android:layout_marginTop="10dp"
                         android:layout_centerHorizontal="true"
-                        android:layout_below="@+id/mlName5"/>
+                        android:layout_below="@+id/MlProduct4"/>
 
                     <ImageView
                         android:layout_width="match_parent"
@@ -453,7 +456,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/mlName6"
+                        android:id="@+id/MlProduct5"
                         android:text="1500 Diamond"
                         android:textSize="9pt"
                         android:layout_marginTop="10dp"
@@ -464,10 +467,11 @@
                         android:layout_height="wrap_content"
                         android:text="Rp. 145.000"
                         android:textStyle="italic"
+                        android:id="@+id/MlPrice5"
                         android:textSize="9pt"
                         android:layout_marginTop="10dp"
                         android:layout_centerHorizontal="true"
-                        android:layout_below="@+id/mlName6"/>
+                        android:layout_below="@+id/MlProduct5"/>
 
                     <ImageView
                         android:layout_width="match_parent"
@@ -496,7 +500,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/mlName7"
+                        android:id="@+id/MlProduct6"
                         android:text="2100 Diamond"
                         android:textSize="20sp"
                         android:layout_marginTop="10dp"
@@ -507,10 +511,11 @@
                         android:layout_height="wrap_content"
                         android:textStyle="italic"
                         android:text="Rp. 200.000"
+                        android:id="@+id/MlPrice6"
                         android:textSize="20sp"
                         android:layout_marginTop="10dp"
                         android:layout_centerHorizontal="true"
-                        android:layout_below="@+id/mlName7"/>
+                        android:layout_below="@+id/MlProduct6"/>
 
                     <ImageView
                         android:layout_width="match_parent"
@@ -552,7 +557,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/mlName8"
+                        android:id="@+id/MlProduct7"
                         android:text="2700 Diamond"
                         android:textSize="9pt"
                         android:layout_marginTop="10dp"
@@ -562,11 +567,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Rp. 260.000"
+                        android:id="@+id/MlPrice7"
                         android:textStyle="italic"
                         android:textSize="9pt"
                         android:layout_marginTop="10dp"
                         android:layout_centerHorizontal="true"
-                        android:layout_below="@+id/mlName8"/>
+                        android:layout_below="@+id/MlProduct7"/>
 
                     <ImageView
                         android:layout_width="match_parent"
@@ -595,7 +601,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/mlName9"
+                        android:id="@+id/MlProduct8"
                         android:text="3500 Diamond"
                         android:textSize="20sp"
                         android:layout_marginTop="10dp"
@@ -605,11 +611,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textStyle="italic"
+                        android:id="@+id/MlPrice8"
                         android:text="Rp. 400.000"
                         android:textSize="20sp"
                         android:layout_marginTop="10dp"
                         android:layout_centerHorizontal="true"
-                        android:layout_below="@+id/mlName9"/>
+                        android:layout_below="@+id/MlProduct8"/>
 
                     <ImageView
                         android:layout_width="match_parent"
@@ -909,6 +916,7 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
                             android:id="@+id/mlemail"
+                            android:inputType="textEmailAddress"
                             android:layout_height="wrap_content"
                             />
                     </com.google.android.material.textfield.TextInputLayout>

@@ -45,6 +45,10 @@ public class MainActivity extends AppCompatActivity {
             intent.putExtra("username", getIntent().getStringExtra("username"));
             startActivity(intent);
             return true;
+        }else if (itemId == R.id.priceList) {
+            Intent intent = new Intent(MainActivity.this, PriceList.class);
+            startActivity(intent);
+            return true;
         }else if (itemId == R.id.logout) {
             getIntent().removeExtra("email");
             getIntent().removeExtra("username");
@@ -66,7 +70,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.d("email", getIntent().getStringExtra("email"));
 
         ImageSlider imageSlider = findViewById(R.id.imageslider);
         ArrayList<SlideModel> slideModels = new ArrayList<>();
@@ -82,16 +85,6 @@ public class MainActivity extends AppCompatActivity {
         genshin = findViewById(R.id.genshinCard);
         ml = findViewById(R.id.mlCard);
         pubgm = findViewById(R.id.pubgmCard);
-
-        priceList = findViewById(R.id.priceList);
-
-        priceList.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, PriceList.class);
-                startActivity(intent);
-            }
-        });
 
         valorant.setOnClickListener(new View.OnClickListener() {
             @Override

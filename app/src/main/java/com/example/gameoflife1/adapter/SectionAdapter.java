@@ -20,7 +20,10 @@ import com.example.gameoflife1.model.ProductModel;
 
 import java.util.List;
 
-public class SectionAdapter extends RecyclerView.Adapter<SectionAdapter.SectionViewHolder> {
+public class SectionAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+
+    private static final int VIEW_TYPE_LINEAR = 0;
+    private static final int VIEW_TYPE_FOOTER = 1;
 
     private List<GamesModel> gamesList;
     private ProductController productController;
@@ -32,53 +35,80 @@ public class SectionAdapter extends RecyclerView.Adapter<SectionAdapter.SectionV
 
     @NonNull
     @Override
-    public SectionViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.section_layout, parent, false);
-        return new SectionViewHolder(view);
+    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+
+        if (viewType == VIEW_TYPE_LINEAR) {
+            View linearView = inflater.inflate(R.layout.section_layout, parent, false);
+            return new LinearViewHolder(linearView);
+        } else {
+            View footerView = inflater.inflate(R.layout.footer_layout, parent, false);
+            return new FooterViewHolder(footerView);
+        }
     }
 
     @Override
-    public void onBindViewHolder(@NonNull SectionViewHolder holder, int position) {
-        gamesController = new GamesController();
-        GamesModel dataProduct = gamesList.get(position);
-//        holder.titleTextView.setText(dataProduct.getTitle());
-//        holder.imageView.setImageResource(dataProduct.getImageResId());
-        gamesController.setTitleSection(position,holder.titleTextView, holder.imageView, holder.imageView.getContext());
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+        if (holder instanceof LinearViewHolder) {
+            LinearViewHolder linearViewHolder = (LinearViewHolder) holder;
+            GamesModel dataProduct = gamesList.get(position);
+            gamesController = new GamesController();
+            gamesController.setTitleSection(position, linearViewHolder.titleTextView, linearViewHolder.imageView, linearViewHolder.imageView.getContext());
 
-        holder.tableLayout.removeAllViews();
-        Log.d("size", String.valueOf(gamesList.size()));
-        holder.tableLayout.removeAllViews();
+            linearViewHolder.tableLayout.removeAllViews();
+            linearViewHolder.tableLayout.removeAllViews();
 
-        // Add table rows dynamically
-        TableRow row = new TableRow(holder.itemView.getContext());
+            // Add table rows dynamically
+            TableRow row = new TableRow(linearViewHolder.itemView.getContext());
 
-        TextView productTextView = new TextView(holder.itemView.getContext());
-        productTextView.setLayoutParams(new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 1f));
+            TextView productTextView = new TextView(linearViewHolder.itemView.getContext());
+            productTextView.setLayoutParams(new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 1f));
 
-        TextView priceTextView = new TextView(holder.itemView.getContext());
-        priceTextView.setLayoutParams(new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 1f));
+            TextView priceTextView = new TextView(linearViewHolder.itemView.getContext());
+            priceTextView.setLayoutParams(new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 1f));
 
-
-        productController = new ProductController();
-        productController.setTextView(position, productTextView, priceTextView, row, holder);
+            productController = new ProductController();
+            productController.setTextView(position, productTextView, priceTextView, row, linearViewHolder);
+        } else if (holder instanceof FooterViewHolder) {
+            // Handle footer view
+            // Implement footer view logic here
+        }
     }
 
     @Override
     public int getItemCount() {
-        return gamesList.size();
+        // Add 1 to the total item count to account for the footer view
+        return gamesList.size() + 1;
     }
 
-    public static class SectionViewHolder extends RecyclerView.ViewHolder {
+    @Override
+    public int getItemViewType(int position) {
+        if (position < gamesList.size()) {
+            return VIEW_TYPE_LINEAR;
+        } else {
+            return VIEW_TYPE_FOOTER;
+        }
+    }
+
+    public static class LinearViewHolder extends RecyclerView.ViewHolder {
         TextView titleTextView;
         ImageView imageView;
         public TableLayout tableLayout;
 
-        public SectionViewHolder(@NonNull View itemView) {
+        public LinearViewHolder(@NonNull View itemView) {
             super(itemView);
             titleTextView = itemView.findViewById(R.id.titleTextView);
             imageView = itemView.findViewById(R.id.imageView);
             tableLayout = itemView.findViewById(R.id.tableLayout);
         }
     }
-}
 
+    public static class FooterViewHolder extends RecyclerView.ViewHolder {
+        // Declare your footer layout views here
+
+        public FooterViewHolder(@NonNull View itemView) {
+            super(itemView);
+            // Initialize your footer layout views here
+        }
+    }
+}

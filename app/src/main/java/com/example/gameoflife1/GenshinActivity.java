@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,8 +16,14 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
+import com.example.gameoflife1.controller.ProductController;
 import com.example.gameoflife1.model.GenshinModel;
+import com.example.gameoflife1.model.ProductModel;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class GenshinActivity extends AppCompatActivity {
 
@@ -51,9 +58,20 @@ public class GenshinActivity extends AppCompatActivity {
     String[] items = {"Asia", "Europe", "America", "Australia"};
     AutoCompleteTextView autoCompleteTxt;
     ArrayAdapter<String> adapterItems;
+    
+    private List<ProductModel> productModelList;
+    private Context context;
+    private ProductController productController;
+
+    TextView gProduct2, gProduct3, gProduct4, gProduct5, gProduct6, gProduct7, gProduct8, gProduct9,
+            gPrice2, gPrice3, gPrice4, gPrice5, gPrice6, gPrice7, gPrice8, gPrice9;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        productController = new ProductController();
+        productModelList = new ArrayList<>();
+        context = this;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_genshin);
 
@@ -78,6 +96,62 @@ public class GenshinActivity extends AppCompatActivity {
         autoCompleteTxt.setAdapter(adapterItems);
         final Button submit = findViewById(R.id.submit);
         GenshinModel genshinModel = new GenshinModel();
+
+        gProduct2 = findViewById(R.id.GenshinProduct);
+        gProduct3 = findViewById(R.id.GenshinProduct2);
+        gProduct4 = findViewById(R.id.GenshinProduct3);
+        gProduct5 = findViewById(R.id.GenshinProduct4);
+        gProduct6 = findViewById(R.id.GenshinProduct5);
+        gProduct7 = findViewById(R.id.GenshinProduct6);
+        gProduct8 = findViewById(R.id.GenshinProduct7);
+        gProduct9 = findViewById(R.id.GenshinProduct8);
+
+        gPrice2 = findViewById(R.id.GenshinPrice);
+        gPrice3 = findViewById(R.id.GenshinPrice2);
+        gPrice4 = findViewById(R.id.GenshinPrice3);
+        gPrice5 = findViewById(R.id.GenshinPrice4);
+        gPrice6 = findViewById(R.id.GenshinPrice5);
+        gPrice7 = findViewById(R.id.GenshinPrice6);
+        gPrice8 = findViewById(R.id.GenshinPrice7);
+        gPrice9 = findViewById(R.id.GenshinPrice8);
+
+        for (int i = 0; i < 8; i++) {
+            String productID = "GenshinProduct" + (i+2);
+            String priceID = "GenshinPrice" + i;
+
+            TextView test = findViewById(R.id.GenshinPrice);
+            Log.d("test", String.valueOf(test));
+
+
+            switch (i){
+                case 0:
+                    productController.setTextValue(productModelList, "4", gProduct2, i, gPrice2);
+                    break;
+                case 1:
+                    productController.setTextValue(productModelList, "4", gProduct3, i, gPrice3);
+                    break;
+                case 2:
+                    productController.setTextValue(productModelList, "4", gProduct4, i, gPrice4);
+                    break;
+                case 3:
+                    productController.setTextValue(productModelList, "4", gProduct5, i, gPrice5);
+                    break;
+                case 4:
+                    productController.setTextValue(productModelList, "4", gProduct6, i, gPrice6);
+                    break;
+                case 5:
+                    productController.setTextValue(productModelList, "4", gProduct7, i, gPrice7);
+                    break;
+                case 6:
+                    productController.setTextValue(productModelList, "4", gProduct8, i, gPrice8);
+                    break;
+                case 7:
+                    productController.setTextValue(productModelList, "4", gProduct9, i, gPrice9);
+                    break;
+            }
+
+//            productController.setTextValue(productModelList, "1", productTextView, priceTextView, i);
+        }
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override

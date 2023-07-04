@@ -304,14 +304,5 @@
             </androidx.cardview.widget.CardView>
 
         </LinearLayout>
-
-        <Button
-            android:id="@+id/priceList"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="pricelist"
-            tools:layout_editor_absoluteX="157dp"
-            tools:layout_editor_absoluteY="0dp"
-            tools:ignore="MissingConstraints" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

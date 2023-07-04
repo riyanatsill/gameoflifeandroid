@@ -3,11 +3,13 @@ package com.example.gameoflife1;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.gameoflife1.controller.ProductController;
 import com.example.gameoflife1.model.GenshinModel;
@@ -106,6 +108,10 @@ public class Details extends AppCompatActivity {
                 mDatabase = FirebaseDatabase.getInstance().getReference("Transaction");
                 String key = mDatabase.push().getKey();
                 mDatabase.child(key).setValue(valorantModel);
+                Intent intent = new Intent(Details.this, MainActivity.class);
+                intent.putExtra("username", getIntent().getStringExtra("username"));
+                Toast.makeText(Details.this, "Orders Valorant Successfully", Toast.LENGTH_SHORT).show();
+                startActivity(intent);
             }
         });
     }
@@ -150,6 +156,10 @@ public class Details extends AppCompatActivity {
                 mDatabase = FirebaseDatabase.getInstance().getReference("Transaction");
                 String key = mDatabase.push().getKey();
                 mDatabase.child(key).setValue(genshinModel);
+                Intent intent = new Intent(Details.this, MainActivity.class);
+                intent.putExtra("username", getIntent().getStringExtra("username"));
+                Toast.makeText(Details.this, "Orders Genshin Impact Successfully", Toast.LENGTH_SHORT).show();
+                startActivity(intent);
             }
         });
     }
@@ -193,6 +203,10 @@ public class Details extends AppCompatActivity {
                 mDatabase = FirebaseDatabase.getInstance().getReference("Transaction");
                 String key = mDatabase.push().getKey();
                 mDatabase.child(key).setValue(mlModel);
+                Intent intent = new Intent(Details.this, MainActivity.class);
+                intent.putExtra("username", getIntent().getStringExtra("username"));
+                Toast.makeText(Details.this, "Orders Mobile Legend Successfully", Toast.LENGTH_SHORT).show();
+                startActivity(intent);
             }
         });
     }
@@ -235,6 +249,10 @@ public class Details extends AppCompatActivity {
                 mDatabase = FirebaseDatabase.getInstance().getReference("Transaction");
                 String key = mDatabase.push().getKey();
                 mDatabase.child(key).setValue(pubgmModel);
+                Intent intent = new Intent(Details.this, MainActivity.class);
+                intent.putExtra("username", getIntent().getStringExtra("username"));
+                Toast.makeText(Details.this, "Orders PUBG Mobile Successfully", Toast.LENGTH_SHORT).show();
+                startActivity(intent);
             }
         });
     }

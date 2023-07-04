@@ -123,12 +123,6 @@ public class ValorantActivity extends AppCompatActivity {
             TextView test = findViewById(R.id.valorantPrice);
             Log.d("test", String.valueOf(test));
 
-//            int productResID = context.getResources().getIdentifier(productID, "id", context.getPackageName());
-//            int priceResID = context.getResources().getIdentifier(priceID, "id", context.getPackageName());
-//
-//            TextView productTextView = findViewById(productResID);
-//            TextView priceTextView = findViewById(priceResID);
-//            Log.d("iterasi oncreate", productID);
 
             switch (i){
                 case 0:
