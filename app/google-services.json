@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "772584044256",
-    "firebase_url": "https://cobaan-9d92e-default-rtdb.firebaseio.com",
-    "project_id": "cobaan-9d92e",
-    "storage_bucket": "cobaan-9d92e.appspot.com"
+    "project_number": "640089926592",
+    "firebase_url": "https://gameoflife-6c5f6-default-rtdb.firebaseio.com",
+    "project_id": "gameoflife-6c5f6",
+    "storage_bucket": "gameoflife-6c5f6.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:772584044256:android:d1f3914e91b2b1dad18285",
+        "mobilesdk_app_id": "1:640089926592:android:90f9d692c72eed9b293625",
         "android_client_info": {
           "package_name": "com.example.gameoflife1"
         }
       },
       "oauth_client": [
         {
-          "client_id": "772584044256-e27tpkttsuh1n7k7ihjq69hkj0d4jtlb.apps.googleusercontent.com",
+          "client_id": "640089926592-4gagqoprcpvjl8dr3oebtk767ma006fd.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyA_D_1QluIlsgCn44C4zEohlRgMuRcpQUE"
+          "current_key": "AIzaSyCMhxVKjCP9EE3IXSHZJtYkKS0IpykhIcQ"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "772584044256-e27tpkttsuh1n7k7ihjq69hkj0d4jtlb.apps.googleusercontent.com",
+              "client_id": "640089926592-4gagqoprcpvjl8dr3oebtk767ma006fd.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

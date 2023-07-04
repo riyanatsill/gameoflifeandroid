@@ -11,67 +11,47 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    DatabaseReference mDatabase;
+
+    private FirebaseAuth auth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        mDatabase = FirebaseDatabase.getInstance().getReference();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-
-        final EditText reg_username = (EditText) findViewById(R.id.username);
         final EditText reg_password = (EditText) findViewById(R.id.pass);
         final EditText reg_email = (EditText) findViewById(R.id.email);
         final Button Register =  findViewById(R.id.btnRegister);
         final TextView Login =  findViewById(R.id.btnLogin);
+        auth = FirebaseAuth.getInstance();
 
 
         Register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final String usernameTxt = reg_username.getText().toString().trim();
-                final String passwordTxt = reg_password.getText().toString();
-                final String emailTxt = reg_email.getText().toString();
+                final String passwordTxt = reg_password.getText().toString().trim();
+                final String emailTxt = reg_email.getText().toString().trim();
 
-                if (usernameTxt.isEmpty() || passwordTxt.isEmpty() || emailTxt.isEmpty()) {
+                if (passwordTxt.isEmpty()) {
                     Toast.makeText(RegisterActivity.this, "Please Fill the Requirements", Toast.LENGTH_SHORT).show();
-                } else {
-                    mDatabase.child("User").addListenerForSingleValueEvent(new ValueEventListener() {
+                }
+                if (emailTxt.isEmpty()){
+                    Toast.makeText(RegisterActivity.this, "Please Fill the Requirements", Toast.LENGTH_SHORT).show();
+                }else {
+                    auth.createUserWithEmailAndPassword(emailTxt, passwordTxt).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            boolean usernameExists = false;
-                            for (DataSnapshot userSnapshot : snapshot.getChildren()) {
-                                String username = userSnapshot.child("username").getValue(String.class);
-                                if (username != null && username.equals(usernameTxt)) {
-                                    usernameExists = true;
-                                    break;
-                                }
-                            }
-
-                            if (usernameExists) {
-                                Toast.makeText(RegisterActivity.this, "Username is Already Taken", Toast.LENGTH_SHORT).show();
-                            } else {
-                                DatabaseReference userRef = mDatabase.child("User").push(); // Generate unique ID
-                                userRef.child("username").setValue(usernameTxt);
-                                userRef.child("pass").setValue(passwordTxt);
-                                userRef.child("email").setValue(emailTxt);
-
-                                Toast.makeText(RegisterActivity.this, "Registered Successfully", Toast.LENGTH_SHORT).show();
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()){
+                                Toast.makeText(RegisterActivity.this, "Register Successfully", Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
-                                finish();
+                            } else {
+                                Toast.makeText(RegisterActivity.this, "Register Failed" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                             }
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
-                            // Handle error
                         }
                     });
                 }
@@ -86,5 +66,41 @@ public class RegisterActivity extends AppCompatActivity {
                 startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
             }
         });
+
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().hide();
+        }
     }
 }
+
+//                    mDatabase.child("User").addListenerForSingleValueEvent(new ValueEventListener() {
+//                        @Override
+//                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                            boolean usernameExists = false;
+//                            for (DataSnapshot userSnapshot : snapshot.getChildren()) {
+//                                String username = userSnapshot.child("username").getValue(String.class);
+//                                if (username != null && username.equals(usernameTxt)) {
+//                                    usernameExists = true;
+//                                    break;
+//                                }
+//                            }
+//
+//                            if (usernameExists) {
+//                                Toast.makeText(RegisterActivity.this, "Username is Already Taken", Toast.LENGTH_SHORT).show();
+//                            } else {
+//                                DatabaseReference userRef = mDatabase.child("User").push(); // Generate unique ID
+//                                userRef.child("username").setValue(usernameTxt);
+//                                userRef.child("pass").setValue(passwordTxt);
+//                                userRef.child("email").setValue(emailTxt);
+//
+//                                Toast.makeText(RegisterActivity.this, "Registered Successfully", Toast.LENGTH_SHORT).show();
+//                                startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+//                                finish();
+//                            }
+//                        }
+//
+//                        @Override
+//                        public void onCancelled(@NonNull DatabaseError error) {
+//                            // Handle error
+//                        }
+//                    });

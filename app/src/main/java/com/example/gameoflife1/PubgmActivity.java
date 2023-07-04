@@ -185,7 +185,7 @@ public class PubgmActivity extends AppCompatActivity {
                 pubgmModel.setPayment(Payment);
                 pubgmModel.setUsername(getIntent().getStringExtra("username"));
                 Intent intent = new Intent(PubgmActivity.this, Details.class);
-                intent.putExtra("username", getIntent().getStringExtra("username"));
+                intent.putExtra("username",pubgmModel.getUsername());
                 intent.putExtra("pubgmModel", pubgmModel);
                 intent.putExtra("game", game);
                 startActivity(intent);

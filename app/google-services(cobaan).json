@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "772584044256",
+    "firebase_url": "https://cobaan-9d92e-default-rtdb.firebaseio.com",
+    "project_id": "cobaan-9d92e",
+    "storage_bucket": "cobaan-9d92e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:772584044256:android:00ddee870344c479d18285",
+        "android_client_info": {
+          "package_name": "com.example.gameoflife1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "772584044256-e27tpkttsuh1n7k7ihjq69hkj0d4jtlb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_D_1QluIlsgCn44C4zEohlRgMuRcpQUE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "772584044256-e27tpkttsuh1n7k7ihjq69hkj0d4jtlb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

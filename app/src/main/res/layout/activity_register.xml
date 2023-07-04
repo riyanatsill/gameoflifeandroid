@@ -28,47 +28,24 @@
         android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
         android:hint="Enter E-mail"
+        android:textColorHint="@color/black"
         app:boxBackgroundColor="@color/white"
         app:endIconDrawable="@drawable/baseline_email_24"
         app:endIconMode="custom"
-        app:endIconTint="@color/bluee"
+        app:endIconTint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.469">
+        app:layout_constraintVertical_bias="0.453">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/email"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
-            android:layout_height="wrap_content" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout3"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginEnd="40dp"
-        android:hint="Enter Username"
-        app:boxBackgroundColor="@color/white"
-        app:endIconDrawable="@drawable/baseline_person_24"
-        app:endIconMode="custom"
-        app:endIconTint="@color/bluee"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.377">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/username"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:textColor="@color/black" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -79,21 +56,24 @@
         android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
         android:hint="Enter Password"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
         app:boxBackgroundColor="@color/white"
         app:endIconMode="password_toggle"
-        app:endIconTint="@color/bluee"
+        app:endIconTint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.562">
+        app:layout_constraintVertical_bias="0.535">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/pass"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:inputType="textPassword"
-            android:layout_height="wrap_content" />
+            android:textColor="@color/black" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
@@ -107,7 +87,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.683" />
+        app:layout_constraintVertical_bias="0.663" />
 
     <TextView
         android:id="@+id/textView2"
@@ -116,36 +96,34 @@
         android:text="©2023 GAMEOFLIFE"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.921" />
+        app:layout_constraintVertical_bias="0.861" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/white"
+        android:layout_marginTop="36dp"
+        android:textSize="8pt"
         android:text="Already Have an Account?"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.37"
+        app:layout_constraintHorizontal_bias="0.305"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.723" />
+        app:layout_constraintTop_toBottomOf="@+id/btnRegister" />
 
     <TextView
         android:id="@+id/btnLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="36dp"
+        android:paddingLeft="10dp"
         android:text="Login"
         android:textColor="@color/bluee"
-        android:paddingLeft="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.694"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.723" />
+        android:textSize="8pt"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/btnRegister" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -50,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
             return true;
         }else if (itemId == R.id.logout) {
-            getIntent().removeExtra("email");
             getIntent().removeExtra("username");
             startActivity(new Intent(MainActivity.this, LoginActivity.class));
             finish();

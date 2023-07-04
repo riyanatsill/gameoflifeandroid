@@ -14,7 +14,7 @@
       android:layout_height="wrap_content"
       android:layout_marginStart="40dp"
       android:layout_marginEnd="40dp"
-      android:hint="Enter Username"
+      android:hint="Enter Email"
       android:textColorHint="@color/black"
       app:boxBackgroundColor="@color/bg"
       app:layout_constraintBottom_toBottomOf="parent"
@@ -29,6 +29,7 @@
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/username"
         android:layout_width="match_parent"
+        android:inputType="textEmailAddress"
         android:textColor="@color/black"
         android:layout_height="wrap_content" />
   </com.google.android.material.textfield.TextInputLayout>
@@ -63,49 +64,64 @@
         tools:ignore="SpeakableTextPresentCheck" />
   </com.google.android.material.textfield.TextInputLayout>
 
+  <TextView
+      android:id="@+id/forgot_password"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center"
+      android:layout_marginTop="5dp"
+      android:padding="8dp"
+      android:text="Forget Password?"
+      android:textColor="@color/black2"
+      android:textSize="16sp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
+
   <Button
       android:id="@+id/btnLogin"
       android:layout_width="231dp"
       android:layout_height="52dp"
       android:layout_alignParentTop="true"
-      android:layout_marginTop="28dp"
-      android:layout_marginBottom="23dp"
+      android:layout_marginTop="10dp"
       android:backgroundTint="@color/bluee"
-      android:textColor="@color/white"
       android:text="Sign In"
+      android:textColor="@color/white"
       android:textSize="10pt"
-      app:layout_constraintBottom_toTopOf="@+id/textView"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
+      app:layout_constraintTop_toBottomOf="@+id/forgot_password" />
 
   <TextView
       android:id="@+id/textView"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
+      android:layout_marginTop="28dp"
       android:text="Don't Have an Account?"
       android:textColor="@color/white"
+      android:textSize="8pt"
       app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.366"
+      app:layout_constraintEnd_toStartOf="@+id/btnRegister"
+      app:layout_constraintHorizontal_bias="1.0"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.719" />
+      app:layout_constraintTop_toBottomOf="@+id/btnLogin"
+      app:layout_constraintVertical_bias="0.0" />
 
   <TextView
       android:id="@+id/btnRegister"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
+      android:layout_marginTop="28dp"
+      android:paddingLeft="10dp"
       android:text="Sign Up"
       android:textColor="@color/bluee"
       android:textSize="8pt"
-      android:paddingLeft="10dp"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.706"
+      app:layout_constraintHorizontal_bias="0.748"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.72" />
+      app:layout_constraintTop_toBottomOf="@+id/btnLogin"
+      app:layout_constraintVertical_bias="0.0" />
 
   <ImageView
       android:id="@+id/imageView"
@@ -122,12 +138,12 @@
       android:id="@+id/textView2"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
+      android:layout_marginTop="39dp"
       android:text="©2023 GAMEOFLIFE"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.498"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.807" />
+      app:layout_constraintTop_toBottomOf="@+id/textView"
+      app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

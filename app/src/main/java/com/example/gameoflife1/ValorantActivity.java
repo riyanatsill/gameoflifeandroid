@@ -188,8 +188,8 @@ public class ValorantActivity extends AppCompatActivity {
                 valorantModel.setPayment(Payment);
                 valorantModel.setUsername(getIntent().getStringExtra("username"));
                 Intent intent = new Intent(ValorantActivity.this, Details.class);
-                intent.putExtra("username", getIntent().getStringExtra("username"));
                 intent.putExtra("ProductModel", valorantModel);
+                intent.putExtra("username",valorantModel.getUsername());
                 intent.putExtra("game", game);
                 startActivity(intent);
             }

@@ -158,6 +158,7 @@ public class Details extends AppCompatActivity {
                 mDatabase.child(key).setValue(genshinModel);
                 Intent intent = new Intent(Details.this, MainActivity.class);
                 intent.putExtra("username", getIntent().getStringExtra("username"));
+                Log.d("username", getIntent().getStringExtra("username"));
                 Toast.makeText(Details.this, "Orders Genshin Impact Successfully", Toast.LENGTH_SHORT).show();
                 startActivity(intent);
             }

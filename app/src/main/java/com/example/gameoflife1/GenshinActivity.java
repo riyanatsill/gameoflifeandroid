@@ -169,6 +169,7 @@ public class GenshinActivity extends AppCompatActivity {
                 Log.d("pro", genshinModel.getProduct());
                 Intent intent = new Intent(GenshinActivity.this, Details.class);
                 intent.putExtra("game", game);
+                intent.putExtra("username",genshinModel.getUsername());
                 intent.putExtra("genshinModel", genshinModel);
                 startActivity(intent);
             }

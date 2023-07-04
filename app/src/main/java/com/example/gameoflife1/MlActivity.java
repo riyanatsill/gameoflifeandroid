@@ -189,7 +189,7 @@ public class MlActivity extends AppCompatActivity {
                 mlModel.setPayment(Payment);
                 mlModel.setUsername(getIntent().getStringExtra("username"));
                 Intent intent = new Intent(MlActivity.this, Details.class);
-                intent.putExtra("username", getIntent().getStringExtra("username"));
+                intent.putExtra("username",mlModel.getUsername());
                 intent.putExtra("mlModel", mlModel);
                 intent.putExtra("game", game);
                 startActivity(intent);
