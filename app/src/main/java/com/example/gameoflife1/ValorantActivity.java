@@ -93,7 +93,6 @@ public class ValorantActivity extends AppCompatActivity {
         final CardView card14 = findViewById(R.id.ovo);
         final EditText riotId = (EditText) findViewById(R.id.valo1);
         final EditText tagline = (EditText) findViewById(R.id.valo2);
-        final EditText email = (EditText) findViewById(R.id.email2);
 
         vProduct2 = findViewById(R.id.ValorantProduct2);
         vProduct3 = findViewById(R.id.ValorantProduct3);
@@ -161,7 +160,6 @@ public class ValorantActivity extends AppCompatActivity {
                 mDatabase = FirebaseDatabase.getInstance().getReference("Product");
                 String id = riotId.getText().toString().trim();
                 String id2 = tagline.getText().toString().trim();
-                String id3 = email.getText().toString().trim();
                 mDatabase.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -180,7 +178,7 @@ public class ValorantActivity extends AppCompatActivity {
                     }
                 });
                 String game = "Valorant";
-                valorantModel.setEmail(id3);
+                valorantModel.setEmail("Belum Selesai");
                 valorantModel.setGame("Valorant");
                 valorantModel.setProduct(value);
                 valorantModel.setTagline(id2);

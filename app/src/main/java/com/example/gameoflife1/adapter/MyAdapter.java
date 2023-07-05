@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.gameoflife1.HistoryDetails;
 import com.example.gameoflife1.MlActivity;
 import com.example.gameoflife1.R;
 import com.example.gameoflife1.controller.TransactionController;
@@ -62,6 +63,29 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
         Log.d("adapter", "adapter running");
         transactionController.setholder(position, transactionModelList, model, holder.recTitle, holder.recID,
                         holder.recPayment, holder.recProduct, holder.recImage, productModelList);
+
+        // Set click listener for the item
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Get the clicked transaction model
+                int clickedPosition = holder.getAdapterPosition();
+                if (clickedPosition != RecyclerView.NO_POSITION) {
+                    TransactionModel clickedTransaction = transactionModelList.get(clickedPosition);
+
+                    // Pass the clicked transaction model to the detail activity or perform any desired action
+                    Intent intent = new Intent(context, HistoryDetails.class);
+                    intent.putExtra("username", transactionModelList.get(holder.getAdapterPosition()).getUsername());
+                    intent.putExtra("id", transactionModelList.get(holder.getAdapterPosition()).getId());
+                    intent.putExtra("game", transactionModelList.get(holder.getAdapterPosition()).getGame());
+                    intent.putExtra("product", transactionModelList.get(holder.getAdapterPosition()).getProduct());
+                    intent.putExtra("payment", transactionModelList.get(holder.getAdapterPosition()).getPayment());
+                    intent.putExtra("status", transactionModelList.get(holder.getAdapterPosition()).getStatus());
+                    intent.putExtra("transaction", clickedTransaction);
+                    context.startActivity(intent);
+                }
+            }
+        });
     }
 
     @Override

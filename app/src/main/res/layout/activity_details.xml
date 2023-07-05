@@ -77,30 +77,14 @@
                         android:layout_height="wrap_content"
                         android:editable="false"/>
                 </com.google.android.material.textfield.TextInputLayout>
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/outlinedTextField3"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
-                    android:layout_width="300dp"
-                    android:layout_centerHorizontal="true"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/outlinedTextField2"
-                    android:textColorHint="@color/black"
-                    android:background="@color/white">
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="300dp"
-                        android:id="@+id/ke3"
-                        android:layout_centerHorizontal="true"
-                        android:layout_height="wrap_content"
-                        android:editable="false"/>
-                </com.google.android.material.textfield.TextInputLayout>
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/outlinedTextField4"
                     style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
                     android:layout_width="300dp"
                     android:layout_centerHorizontal="true"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/outlinedTextField3"
+                    android:layout_below="@+id/outlinedTextField2"
                     android:textColorHint="@color/black"
                     android:background="@color/white">
 

@@ -858,59 +858,6 @@
             </androidx.cardview.widget.CardView>
         </LinearLayout>
 
-        <!--EMAIL-->
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="120dp"
-            android:layout_marginTop="10dp"
-            android:id="@+id/isiemail"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/payment6">
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_margin="10dp"
-                android:layout_weight="1">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:background="@color/bg"
-                    android:layout_height="match_parent">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="MASUKAN EMAIL ANDA"
-                        android:textSize="10pt"
-                        android:textStyle="bold"
-                        android:layout_centerHorizontal="true"
-                        android:id="@+id/email1"
-                        android:textAlignment="center" />
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/email"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="EMAIL"
-                        android:layout_below="@+id/email1"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:layout_width="match_parent"
-                            android:inputType="textEmailAddress"
-                            android:id="@+id/pemail"
-                            android:layout_height="wrap_content"
-                            />
-                    </com.google.android.material.textfield.TextInputLayout>
-                </RelativeLayout>
-            </androidx.cardview.widget.CardView>
-
-        </LinearLayout>
-
         <!--SUBMIT-->
         <LinearLayout
             android:layout_width="0dp"
@@ -921,7 +868,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/isiemail">
+            app:layout_constraintTop_toBottomOf="@+id/payment6">
 
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"

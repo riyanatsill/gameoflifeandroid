@@ -95,7 +95,6 @@ public class MlActivity extends AppCompatActivity {
 
         final EditText mlid = findViewById(R.id.mlid);
         final EditText zone = findViewById(R.id.mlzone);
-        final EditText email = findViewById(R.id.mlemail);
 
         final Button submit = findViewById(R.id.submit);
         model = new ProductModel();
@@ -162,7 +161,6 @@ public class MlActivity extends AppCompatActivity {
                 mDatabase = FirebaseDatabase.getInstance().getReference("Product");
                 String id = mlid.getText().toString().trim();
                 String id2 = zone.getText().toString().trim();
-                String id3 = email.getText().toString().trim();
                 mDatabase.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -181,7 +179,7 @@ public class MlActivity extends AppCompatActivity {
                     }
                 });
                 String game = "Mobile Legend";
-                mlModel.setEmail(id3);
+                mlModel.setEmail("Belum Selesai");
                 mlModel.setGame("Mobile Legend");
                 mlModel.setProduct(value);
                 mlModel.setZone(id2);
@@ -201,7 +199,7 @@ public class MlActivity extends AppCompatActivity {
             public void onClick(View v) {
                 index = 1;
                 card1.setCardBackgroundColor(getColor(R.color.bg2));
-                value = "100 Diamond";
+                value = "250 Diamond";
 
                 card2.setCardBackgroundColor(getColor(R.color.bg));
                 card3.setCardBackgroundColor(getColor(R.color.bg));
@@ -218,7 +216,7 @@ public class MlActivity extends AppCompatActivity {
             public void onClick(View v) {
                 index = 2;
                 card2.setCardBackgroundColor(getColor(R.color.bg2));
-                value = "250 Diamond";
+                value = "400 Diamond";
 
                 card1.setCardBackgroundColor(getColor(R.color.bg));
                 card3.setCardBackgroundColor(getColor(R.color.bg));
@@ -235,7 +233,7 @@ public class MlActivity extends AppCompatActivity {
             public void onClick(View v) {
                 index = 3;
                 card3.setCardBackgroundColor(getColor(R.color.bg2));
-                value = "500 Diamond";
+                value = "600 Diamond";
 
                 card1.setCardBackgroundColor(getColor(R.color.bg));
                 card2.setCardBackgroundColor(getColor(R.color.bg));

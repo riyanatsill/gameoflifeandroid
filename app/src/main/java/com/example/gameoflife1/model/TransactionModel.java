@@ -1,11 +1,22 @@
 package com.example.gameoflife1.model;
 
-public class TransactionModel {
+import java.io.Serializable;
+
+public class TransactionModel implements Serializable {
     private String game;
     private String username;
     private String id;
     private String product;
     private String payment;
+    private String status;
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     public String getId() {
         return id;

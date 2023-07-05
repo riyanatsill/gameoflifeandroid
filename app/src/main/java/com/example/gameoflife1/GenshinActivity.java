@@ -90,7 +90,7 @@ public class GenshinActivity extends AppCompatActivity {
         final CardView card13 = findViewById(R.id.shopeepay);
         final CardView card14 = findViewById(R.id.ovo);
         final EditText id = findViewById(R.id.inputId);
-        final EditText email = findViewById(R.id.inputEmail);
+
         autoCompleteTxt = findViewById(R.id.auto1);
         adapterItems = new ArrayAdapter<>(this, R.layout.list_item,items);
         autoCompleteTxt.setAdapter(adapterItems);
@@ -157,10 +157,9 @@ public class GenshinActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String inputId = id.getText().toString();
-                String inputEmail = email.getText().toString();
                 String game = "Genshin";
                 genshinModel.setGame("Genshin Impact");
-                genshinModel.setEmail(inputEmail);
+                genshinModel.setEmail("Belum Selesai");
                 genshinModel.setId(inputId);
                 genshinModel.setProduct(value);
                 genshinModel.setPayment(pvalue);

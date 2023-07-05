@@ -12,10 +12,12 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.gameoflife1.controller.ProductController;
+import com.example.gameoflife1.controller.SendEmail;
 import com.example.gameoflife1.model.GenshinModel;
 import com.example.gameoflife1.model.MlModel;
 import com.example.gameoflife1.model.ProductModel;
 import com.example.gameoflife1.model.PubgmModel;
+import com.example.gameoflife1.model.TransactionModel;
 import com.example.gameoflife1.model.ValorantModel;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DataSnapshot;
@@ -29,6 +31,7 @@ public class Details extends AppCompatActivity {
     private ValorantModel valorantModel = new ValorantModel();
     private ProductModel Model = new ProductModel();
     private ProductController controller = new ProductController();
+    private TransactionModel transactionModel = new TransactionModel();
     DatabaseReference mDatabase, pDatatabase;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,14 +39,12 @@ public class Details extends AppCompatActivity {
         setContentView(R.layout.activity_details);
         final EditText id = findViewById(R.id.ke1);
         final EditText tagline = findViewById(R.id.ke2);
-        final EditText email = findViewById(R.id.ke3);
         final EditText product = findViewById(R.id.ke4);
         final EditText payment = findViewById(R.id.ke5);
         final EditText price = findViewById(R.id.ke6);
 
         final TextInputLayout id2 = findViewById(R.id.outlinedTextField1);
         final TextInputLayout tagline2 = findViewById(R.id.outlinedTextField2);
-        final TextInputLayout email2 = findViewById(R.id.outlinedTextField3);
         final TextInputLayout product2 = findViewById(R.id.outlinedTextField4);
         final TextInputLayout payment2 = findViewById(R.id.outlinedTextField5);
         final TextInputLayout price2 = findViewById(R.id.outlinedTextField6);
@@ -53,22 +54,22 @@ public class Details extends AppCompatActivity {
         String game = getIntent().getStringExtra("game");
         switch (game){
             case "Valorant":
-                valorant(id, tagline, email, product, payment, price, id2, tagline2, email2, product2, payment2, price2, submit);
+                valorant(id, tagline, product, payment, price, id2, tagline2, product2, payment2, price2, submit);
                 break;
             case "Genshin" :
-                genshin(id, tagline, email, product, payment, price, id2, tagline2, email2, product2, payment2, price2, submit);
+                genshin(id, tagline, product, payment, price, id2, tagline2, product2, payment2, price2, submit);
                 break;
             case "Mobile Legend" :
-                ml(id, tagline, email, product, payment, price, id2, tagline2, email2, product2, payment2, price2, submit);
+                ml(id, tagline, product, payment, price, id2, tagline2, product2, payment2, price2, submit);
                 break;
             case "PUBG Mobile" :
-                pubgm(id, tagline, email, product, payment, id2, tagline2, email2, product2, payment2, submit);
+                pubgm(id, tagline, product, payment, id2, tagline2, product2, payment2, submit);
                 break;
         }
     }
 
-    public void valorant(EditText id, EditText tagline, EditText email, EditText product, EditText payment, EditText price,
-                         TextInputLayout id2, TextInputLayout tagline2, TextInputLayout email2, TextInputLayout product2,
+    public void valorant(EditText id, EditText tagline, EditText product, EditText payment, EditText price,
+                         TextInputLayout id2, TextInputLayout tagline2, TextInputLayout product2,
                          TextInputLayout payment2, TextInputLayout price2, Button submit){
         ValorantModel valorantModel = (ValorantModel) getIntent().getSerializableExtra("ProductModel");
         pDatatabase = FirebaseDatabase.getInstance().getReference("Product");
@@ -94,8 +95,6 @@ public class Details extends AppCompatActivity {
         id2.setHint("ID");
         tagline.setText(valorantModel.getTagline());
         tagline2.setHint("Tagline");
-        email.setText(valorantModel.getEmail());
-        email2.setHint("Email");
         product.setText(valorantModel.getProduct());
         product2.setHint("Product");
         Log.d("product", valorantModel.getProduct());
@@ -107,6 +106,7 @@ public class Details extends AppCompatActivity {
             public void onClick(View v) {
                 mDatabase = FirebaseDatabase.getInstance().getReference("Transaction");
                 String key = mDatabase.push().getKey();
+                SendEmail.sendPasswordEmail(valorantModel.getUsername(), valorantModel);
                 mDatabase.child(key).setValue(valorantModel);
                 Intent intent = new Intent(Details.this, MainActivity.class);
                 intent.putExtra("username", getIntent().getStringExtra("username"));
@@ -116,8 +116,8 @@ public class Details extends AppCompatActivity {
         });
     }
 
-    public void genshin(EditText id, EditText tagline, EditText email, EditText product, EditText payment, EditText price,
-                        TextInputLayout id2, TextInputLayout tagline2, TextInputLayout email2, TextInputLayout product2,
+    public void genshin(EditText id, EditText tagline, EditText product, EditText payment, EditText price,
+                        TextInputLayout id2, TextInputLayout tagline2, TextInputLayout product2,
                         TextInputLayout payment2, TextInputLayout price2, Button submit){
         GenshinModel genshinModel = (GenshinModel) getIntent().getSerializableExtra("genshinModel");
         pDatatabase = FirebaseDatabase.getInstance().getReference("Product");
@@ -142,8 +142,6 @@ public class Details extends AppCompatActivity {
         id2.setHint("ID");
         tagline.setText(genshinModel.getServer());
         tagline2.setHint("Server");
-        email.setText(genshinModel.getEmail());
-        email2.setHint("Email");
         product.setText(genshinModel.getProduct());
         product2.setHint("Product");
         Log.d("product", genshinModel.getProduct());
@@ -165,8 +163,8 @@ public class Details extends AppCompatActivity {
         });
     }
 
-    public void ml(EditText id, EditText tagline, EditText email, EditText product, EditText payment, EditText price,
-                        TextInputLayout id2, TextInputLayout tagline2, TextInputLayout email2, TextInputLayout product2,
+    public void ml(EditText id, EditText tagline, EditText product, EditText payment, EditText price,
+                        TextInputLayout id2, TextInputLayout tagline2, TextInputLayout product2,
                         TextInputLayout payment2, TextInputLayout price2, Button submit){
         MlModel mlModel = (MlModel) getIntent().getSerializableExtra("mlModel");
         pDatatabase = FirebaseDatabase.getInstance().getReference("Product");
@@ -190,8 +188,6 @@ public class Details extends AppCompatActivity {
         id2.setHint("ID");
         tagline.setText(mlModel.getZone());
         tagline2.setHint("Zone");
-        email.setText(mlModel.getEmail());
-        email2.setHint("Email");
         product.setText(mlModel.getProduct());
         product2.setHint("Product");
         Log.d("product", mlModel.getProduct());
@@ -212,8 +208,8 @@ public class Details extends AppCompatActivity {
         });
     }
 
-    public void pubgm(EditText id, EditText tagline, EditText email, EditText product, EditText payment,
-                      TextInputLayout id2, TextInputLayout tagline2, TextInputLayout email2, TextInputLayout product2,
+    public void pubgm(EditText id, EditText tagline, EditText product, EditText payment,
+                      TextInputLayout id2, TextInputLayout tagline2, TextInputLayout product2,
                       TextInputLayout payment2, Button submit){
         PubgmModel pubgmModel = (PubgmModel) getIntent().getSerializableExtra("pubgmModel");
         pDatatabase = FirebaseDatabase.getInstance().getReference("Product");
@@ -236,10 +232,8 @@ public class Details extends AppCompatActivity {
 
         id.setText(pubgmModel.getId());
         id2.setHint("ID");
-        tagline.setText(pubgmModel.getEmail());
-        tagline2.setHint("Email");
-        email.setText(pubgmModel.getProduct());
-        email2.setHint("Product");
+        tagline.setText(pubgmModel.getProduct());
+        tagline2.setHint("Product");
         Log.d("product", pubgmModel.getProduct());
         product.setText(pubgmModel.getPayment());
         product2.setHint("Payment");

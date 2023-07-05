@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Gameoflife1"
         tools:targetApi="31">
         <activity
+            android:name=".HistoryDetails"
+            android:exported="false" />
+        <activity
             android:name=".PriceList"
             android:exported="false" />
         <activity

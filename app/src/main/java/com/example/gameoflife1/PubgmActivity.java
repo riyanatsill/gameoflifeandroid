@@ -93,7 +93,6 @@ public class PubgmActivity extends AppCompatActivity {
         final CardView card14 = findViewById(R.id.ovo);
 
         final EditText pubgmid = findViewById(R.id.p1);
-        final EditText email = findViewById(R.id.pemail);
 
         final Button submit = findViewById(R.id.submit);
         model = new ProductModel();
@@ -159,7 +158,6 @@ public class PubgmActivity extends AppCompatActivity {
             public void onClick(View v) {
                 mDatabase = FirebaseDatabase.getInstance().getReference("Product");
                 String id = pubgmid.getText().toString().trim();
-                String id3 = email.getText().toString().trim();
                 mDatabase.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -178,7 +176,7 @@ public class PubgmActivity extends AppCompatActivity {
                     }
                 });
                 String game = "PUBG Mobile";
-                pubgmModel.setEmail(id3);
+                pubgmModel.setEmail("Belum Selesai");
                 pubgmModel.setGame("PUBG Mobile");
                 pubgmModel.setProduct(value);
                 pubgmModel.setId(id);
@@ -197,7 +195,7 @@ public class PubgmActivity extends AppCompatActivity {
             public void onClick(View v) {
                 index = 1;
                 card1.setCardBackgroundColor(getColor(R.color.bg2));
-                value = "100 UC";
+                value = "500 UC";
 
                 card2.setCardBackgroundColor(getColor(R.color.bg));
                 card3.setCardBackgroundColor(getColor(R.color.bg));
@@ -214,7 +212,7 @@ public class PubgmActivity extends AppCompatActivity {
             public void onClick(View v) {
                 index = 2;
                 card2.setCardBackgroundColor(getColor(R.color.bg2));
-                value = "250 UC";
+                value = "750 UC";
 
                 card1.setCardBackgroundColor(getColor(R.color.bg));
                 card3.setCardBackgroundColor(getColor(R.color.bg));
@@ -231,7 +229,7 @@ public class PubgmActivity extends AppCompatActivity {
             public void onClick(View v) {
                 index = 3;
                 card3.setCardBackgroundColor(getColor(R.color.bg2));
-                value = "500 UC";
+                value = "1000 UC";
 
                 card1.setCardBackgroundColor(getColor(R.color.bg));
                 card2.setCardBackgroundColor(getColor(R.color.bg));
@@ -248,7 +246,7 @@ public class PubgmActivity extends AppCompatActivity {
             public void onClick(View v) {
                 index = 4;
                 card4.setCardBackgroundColor(getColor(R.color.bg2));
-                value = "780 UC";
+                value = "1200 UC";
 
                 card1.setCardBackgroundColor(getColor(R.color.bg));
                 card2.setCardBackgroundColor(getColor(R.color.bg));

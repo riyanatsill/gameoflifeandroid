@@ -2,9 +2,10 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scroll"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/scroll"
+    android:scrollbars="none"
     tools:context=".ValorantActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -31,9 +32,9 @@
 
         <!--CARA-->
         <LinearLayout
+            android:id="@+id/first"
             android:layout_width="0dp"
             android:layout_height="450dp"
-            android:id="@+id/first"
             android:layout_marginTop="10dp"
             android:orientation="horizontal"
             android:padding="10dp"
@@ -41,100 +42,110 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/valo">
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="CARA MEMBELI"
-                    android:textSize="10pt"
-                    android:textStyle="bold"
-                    android:layout_centerHorizontal="true"
                     android:id="@+id/text1"
-                    android:textAlignment="center" />
-                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="VALORANT POINT"
+                    android:layout_centerHorizontal="true"
+                    android:text="CARA MEMBELI"
+                    android:textAlignment="center"
                     android:textSize="10pt"
-                    android:textStyle="bold"
-                    android:layout_centerHorizontal="true"
+                    android:textStyle="bold" />
+
+                <TextView
                     android:id="@+id/text2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_below="@+id/text1"
-                    android:textAlignment="textStart" />
+                    android:layout_centerHorizontal="true"
+                    android:text="VALORANT POINT"
+                    android:textAlignment="textStart"
+                    android:textSize="10pt"
+                    android:textStyle="bold" />
+
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="1. Masukkan Riot ID &amp; Tagline akun kalian"
-                    android:textSize="9pt"
-                    android:layout_alignParentLeft="true"
                     android:id="@+id/text3"
-                    android:textAlignment="textStart"
-                    android:layout_below="@+id/text2"/>
-                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="2. Pilih Nominal Valorant Point yang diinginkan"
-                    android:textSize="9pt"
+                    android:layout_below="@+id/text2"
                     android:layout_alignParentLeft="true"
+                    android:text="1. Masukkan Riot ID &amp; Tagline akun kalian"
+                    android:textAlignment="textStart"
+                    android:textSize="9pt" />
+
+                <TextView
                     android:id="@+id/text4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_below="@+id/text3"
-                    android:textAlignment="textStart" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="3. Pilih Metode Pembayaran"
-                    android:textSize="9pt"
                     android:layout_alignParentLeft="true"
-                    android:id="@+id/text5"
-                    android:layout_below="@+id/text4"
-                    android:textAlignment="textStart" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="4. Masukkan alamat e-mail kalian untuk rincian pesanan"
-                    android:textSize="9pt"
-                    android:layout_centerHorizontal="true"
-                    android:id="@+id/text6"
-                    android:layout_below="@+id/text5"
-                    android:textAlignment="textStart" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="5. Konfirmasi dan pastikan membayar dengan Jumlah Total Harga yang benar"
-                    android:textSize="9pt"
-                    android:layout_centerHorizontal="true"
-                    android:id="@+id/text7"
-                    android:layout_below="@+id/text6"
-                    android:textAlignment="textStart" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="6. Tunggu sampai 1-15 Menit. Valorant Point akan masuk secepat kilat"
-                    android:textSize="9pt"
-                    android:layout_centerHorizontal="true"
-                    android:id="@+id/text8"
-                    android:layout_below="@+id/text7"
-                    android:textAlignment="textStart" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="(Mohon kesediannya menunggu, vp diproses secara manual maka disesuaikan dengan antrian)"
-                    android:textSize="9pt"
-                    android:layout_alignParentLeft="true"
-                    android:id="@+id/text9"
+                    android:text="2. Pilih Nominal Valorant Point yang diinginkan"
                     android:textAlignment="textStart"
-                    android:layout_below="@+id/text8" />
+                    android:textSize="9pt" />
+
+                <TextView
+                    android:id="@+id/text5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/text4"
+                    android:layout_alignParentLeft="true"
+                    android:text="3. Pilih Metode Pembayaran"
+                    android:textAlignment="textStart"
+                    android:textSize="9pt" />
+
+                <TextView
+                    android:id="@+id/text6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/text5"
+                    android:layout_centerHorizontal="true"
+                    android:text="4. Masukkan alamat e-mail kalian untuk rincian pesanan"
+                    android:textAlignment="textStart"
+                    android:textSize="9pt" />
+
+                <TextView
+                    android:id="@+id/text7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/text6"
+                    android:layout_centerHorizontal="true"
+                    android:text="5. Konfirmasi dan pastikan membayar dengan Jumlah Total Harga yang benar"
+                    android:textAlignment="textStart"
+                    android:textSize="9pt" />
+
+                <TextView
+                    android:id="@+id/text8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/text7"
+                    android:layout_centerHorizontal="true"
+                    android:text="6. Tunggu sampai 1-15 Menit. Valorant Point akan masuk secepat kilat"
+                    android:textAlignment="textStart"
+                    android:textSize="9pt" />
+
+                <TextView
+                    android:id="@+id/text9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/text8"
+                    android:layout_alignParentLeft="true"
+                    android:text="(Mohon kesediannya menunggu, vp diproses secara manual maka disesuaikan dengan antrian)"
+                    android:textAlignment="textStart"
+                    android:textSize="9pt" />
             </RelativeLayout>
         </LinearLayout>
 
         <!--RIOT ID-->
         <LinearLayout
+            android:id="@+id/second"
             android:layout_width="0dp"
             android:layout_height="180dp"
             android:layout_marginTop="10dp"
-            android:id="@+id/second"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -147,91 +158,91 @@
                 android:layout_margin="10dp"
                 android:layout_weight="1">
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:background="@color/bg"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="MASUKAN DATA ANDA"
-                    android:textSize="10pt"
-                    android:textStyle="bold"
-                    android:layout_centerHorizontal="true"
-                    android:id="@+id/cara"
-                    android:textAlignment="center" />
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/outlinedTextField1"
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColorHint="@color/black"
-                    android:hint="RIOT ID"
-                    android:layout_below="@+id/cara"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+                    android:layout_height="match_parent"
+                    android:background="@color/bg">
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/valo1"
+                    <TextView
+                        android:id="@+id/cara"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:text="MASUKAN DATA ANDA"
+                        android:textAlignment="center"
+                        android:textSize="10pt"
+                        android:textStyle="bold" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/outlinedTextField1"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        />
-                </com.google.android.material.textfield.TextInputLayout>
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/outlinedTextField2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColorHint="@color/black"
-                    android:hint="TAGLINE"
-                    android:layout_below="@+id/outlinedTextField1"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+                        android:layout_below="@+id/cara"
+                        android:hint="RIOT ID"
+                        android:textColorHint="@color/black">
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/valo2"
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/valo1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/outlinedTextField2"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        />
-                </com.google.android.material.textfield.TextInputLayout>
-            </RelativeLayout>
+                        android:layout_below="@+id/outlinedTextField1"
+                        android:hint="TAGLINE"
+                        android:textColorHint="@color/black">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/valo2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
         </LinearLayout>
 
         <!--PRODUCT-->
         <LinearLayout
+            android:id="@+id/riot"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_marginTop="10dp"
-            android:id="@+id/riot"
-            android:padding="10dp"
             android:orientation="horizontal"
+            android:padding="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/second">
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:background="@color/bg"
-                    android:layout_height="match_parent">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="PILIH PRODUK"
-                        android:textSize="10pt"
-                        android:textStyle="bold"
-                        android:layout_centerHorizontal="true"
-                        android:id="@+id/caraa"
-                        android:textAlignment="center" />
-                </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/bg">
+
+                <TextView
+                    android:id="@+id/caraa"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="PILIH PRODUK"
+                    android:textAlignment="center"
+                    android:textSize="10pt"
+                    android:textStyle="bold" />
+            </RelativeLayout>
 
         </LinearLayout>
 
         <!--product 1-->
         <LinearLayout
+            android:id="@+id/product"
             android:layout_width="0dp"
             android:layout_height="220dp"
-            android:id="@+id/product"
             android:layout_marginTop="2dp"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
@@ -240,88 +251,90 @@
             app:layout_constraintTop_toBottomOf="@+id/riot">
 
             <androidx.cardview.widget.CardView
-                android:layout_width="0dp"
-                app:cardBackgroundColor="@color/bg"
-                android:layout_height="wrap_content"
                 android:id="@+id/valorantCard"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
-                app:cardElevation="20dp"
-                app:cardCornerRadius="20dp">
+                app:cardBackgroundColor="@color/bg"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="20dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
                         android:id="@+id/ValorantProduct2"
-                        android:text="100 Valorant Point"
-                        android:textSize="9pt"
-                        android:layout_marginTop="10dp"
-                        android:layout_centerHorizontal="true"
-                        android:layout_below="@+id/valorantImage"/>
-                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/valorantPrice"
-                        android:text="Rp. 10.000"
-                        android:textStyle="italic"
-                        android:textSize="9pt"
+                        android:layout_below="@+id/valorantImage"
                         android:layout_centerHorizontal="true"
-                        android:layout_below="@+id/ValorantProduct2"/>
+                        android:layout_marginTop="10dp"
+                        android:text="100 Valorant Point"
+                        android:textSize="9pt" />
+
+                    <TextView
+                        android:id="@+id/valorantPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/ValorantProduct2"
+                        android:layout_centerHorizontal="true"
+                        android:text="Rp. 10.000"
+                        android:textSize="9pt"
+                        android:textStyle="italic" />
 
                     <ImageView
+                        android:id="@+id/valorantImage"
                         android:layout_width="match_parent"
                         android:layout_height="100dp"
-                        android:id="@+id/valorantImage"
-                        android:src="@drawable/vp"
+                        android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
-                        android:layout_centerHorizontal="true"/>
+                        android:src="@drawable/vp" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/valorantCard2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/bg"
                 android:layout_margin="10dp"
-                android:id="@+id/valorantCard2"
                 android:layout_weight="1"
-                app:cardElevation="20dp"
-                app:cardCornerRadius="20dp">
+                app:cardBackgroundColor="@color/bg"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="20dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
                         android:id="@+id/ValorantProduct3"
-                        android:text="250 Valorant Point"
-                        android:textSize="20sp"
-                        android:layout_marginTop="10dp"
-                        android:layout_centerHorizontal="true"
-                        android:layout_below="@+id/valorantImage2"/>
-                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textStyle="italic"
+                        android:layout_below="@+id/valorantImage2"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:text="250 Valorant Point"
+                        android:textSize="20sp" />
+
+                    <TextView
                         android:id="@+id/valorantPrice2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/ValorantProduct3"
+                        android:layout_centerHorizontal="true"
                         android:text="Rp. 22.000"
                         android:textSize="20sp"
-                        android:layout_centerHorizontal="true"
-                        android:layout_below="@+id/ValorantProduct3"/>
+                        android:textStyle="italic" />
 
                     <ImageView
+                        android:id="@+id/valorantImage2"
                         android:layout_width="match_parent"
                         android:layout_height="100dp"
-                        android:id="@+id/valorantImage2"
-                        android:src="@drawable/vp"
+                        android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
-                        android:layout_centerHorizontal="true"/>
+                        android:src="@drawable/vp" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
@@ -329,9 +342,9 @@
 
         <!--product 2-->
         <LinearLayout
+            android:id="@+id/product2"
             android:layout_width="0dp"
             android:layout_height="220dp"
-            android:id="@+id/product2"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -339,90 +352,92 @@
             app:layout_constraintTop_toBottomOf="@+id/product">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/valorantCard3"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/bg"
-                android:id="@+id/valorantCard3"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
-                app:cardElevation="20dp"
-                app:cardCornerRadius="20dp">
+                app:cardBackgroundColor="@color/bg"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="20dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
                         android:id="@+id/ValorantProduct4"
-                        android:text="500 Valorant Point"
-                        android:textSize="9pt"
-                        android:layout_marginTop="10dp"
-                        android:layout_centerHorizontal="true"
-                        android:layout_below="@+id/valorantImage3"/>
-                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Rp. 50.000"
-                        android:textStyle="italic"
-                        android:id="@+id/valorantPrice3"
-                        android:textSize="9pt"
-                        android:layout_marginTop="10dp"
+                        android:layout_below="@+id/valorantImage3"
                         android:layout_centerHorizontal="true"
-                        android:layout_below="@+id/ValorantProduct4"/>
+                        android:layout_marginTop="10dp"
+                        android:text="500 Valorant Point"
+                        android:textSize="9pt" />
+
+                    <TextView
+                        android:id="@+id/valorantPrice3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/ValorantProduct4"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:text="Rp. 50.000"
+                        android:textSize="9pt"
+                        android:textStyle="italic" />
 
                     <ImageView
+                        android:id="@+id/valorantImage3"
                         android:layout_width="match_parent"
                         android:layout_height="100dp"
-                        android:id="@+id/valorantImage3"
-                        android:src="@drawable/vp"
+                        android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
-                        android:layout_centerHorizontal="true"/>
+                        android:src="@drawable/vp" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/valorantCard4"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/bg"
-                android:id="@+id/valorantCard4"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
-                app:cardElevation="20dp"
-                app:cardCornerRadius="20dp">
+                app:cardBackgroundColor="@color/bg"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="20dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
                         android:id="@+id/ValorantProduct5"
-                        android:text="780 Valorant Point"
-                        android:textSize="20sp"
-                        android:layout_marginTop="10dp"
-                        android:layout_centerHorizontal="true"
-                        android:layout_below="@+id/valorantImage4"/>
-                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textStyle="italic"
-                        android:text="Rp. 78.000"
-                        android:id="@+id/valorantPrice4"
-                        android:textSize="20sp"
-                        android:layout_marginTop="10dp"
+                        android:layout_below="@+id/valorantImage4"
                         android:layout_centerHorizontal="true"
-                        android:layout_below="@+id/ValorantProduct5"/>
+                        android:layout_marginTop="10dp"
+                        android:text="780 Valorant Point"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/valorantPrice4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/ValorantProduct5"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:text="Rp. 78.000"
+                        android:textSize="20sp"
+                        android:textStyle="italic" />
 
                     <ImageView
+                        android:id="@+id/valorantImage4"
                         android:layout_width="match_parent"
                         android:layout_height="100dp"
-                        android:id="@+id/valorantImage4"
-                        android:src="@drawable/vp"
+                        android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
-                        android:layout_centerHorizontal="true"/>
+                        android:src="@drawable/vp" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
@@ -430,9 +445,9 @@
 
         <!--product 3-->
         <LinearLayout
+            android:id="@+id/product3"
             android:layout_width="0dp"
             android:layout_height="220dp"
-            android:id="@+id/product3"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -440,90 +455,92 @@
             app:layout_constraintTop_toBottomOf="@+id/product2">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/valorantCard5"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/bg"
-                android:id="@+id/valorantCard5"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
-                app:cardElevation="20dp"
-                app:cardCornerRadius="20dp">
+                app:cardBackgroundColor="@color/bg"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="20dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
                         android:id="@+id/ValorantProduct6"
-                        android:text="1500 Valorant Point"
-                        android:textSize="9pt"
-                        android:layout_marginTop="10dp"
-                        android:layout_centerHorizontal="true"
-                        android:layout_below="@+id/valorantImage5"/>
-                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Rp. 145.000"
-                        android:textStyle="italic"
-                        android:id="@+id/valorantPrice5"
-                        android:textSize="9pt"
-                        android:layout_marginTop="10dp"
+                        android:layout_below="@+id/valorantImage5"
                         android:layout_centerHorizontal="true"
-                        android:layout_below="@+id/ValorantProduct6"/>
+                        android:layout_marginTop="10dp"
+                        android:text="1500 Valorant Point"
+                        android:textSize="9pt" />
+
+                    <TextView
+                        android:id="@+id/valorantPrice5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/ValorantProduct6"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:text="Rp. 145.000"
+                        android:textSize="9pt"
+                        android:textStyle="italic" />
 
                     <ImageView
+                        android:id="@+id/valorantImage5"
                         android:layout_width="match_parent"
                         android:layout_height="100dp"
-                        android:id="@+id/valorantImage5"
-                        android:src="@drawable/vp"
+                        android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
-                        android:layout_centerHorizontal="true"/>
+                        android:src="@drawable/vp" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/valorantCard6"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/bg"
-                android:id="@+id/valorantCard6"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
-                app:cardElevation="20dp"
-                app:cardCornerRadius="20dp">
+                app:cardBackgroundColor="@color/bg"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="20dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
                         android:id="@+id/ValorantProduct7"
-                        android:text="2100 Valorant Point"
-                        android:textSize="20sp"
-                        android:layout_marginTop="10dp"
-                        android:layout_centerHorizontal="true"
-                        android:layout_below="@+id/valorantImage6"/>
-                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textStyle="italic"
+                        android:layout_below="@+id/valorantImage6"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:text="2100 Valorant Point"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/valorantPrice6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/ValorantProduct7"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
                         android:text="Rp. 200.000"
                         android:textSize="20sp"
-                        android:id="@+id/valorantPrice6"
-                        android:layout_marginTop="10dp"
-                        android:layout_centerHorizontal="true"
-                        android:layout_below="@+id/ValorantProduct7"/>
+                        android:textStyle="italic" />
 
                     <ImageView
+                        android:id="@+id/valorantImage6"
                         android:layout_width="match_parent"
                         android:layout_height="100dp"
-                        android:id="@+id/valorantImage6"
-                        android:src="@drawable/vp"
+                        android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
-                        android:layout_centerHorizontal="true"/>
+                        android:src="@drawable/vp" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
@@ -531,9 +548,9 @@
 
         <!--product 4-->
         <LinearLayout
+            android:id="@+id/product4"
             android:layout_width="0dp"
             android:layout_height="220dp"
-            android:id="@+id/product4"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -541,90 +558,92 @@
             app:layout_constraintTop_toBottomOf="@+id/product3">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/valorantCard7"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/bg"
-                android:id="@+id/valorantCard7"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
-                app:cardElevation="20dp"
-                app:cardCornerRadius="20dp">
+                app:cardBackgroundColor="@color/bg"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="20dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
                         android:id="@+id/ValorantProduct8"
-                        android:text="2700 Valorant Point"
-                        android:textSize="9pt"
-                        android:layout_marginTop="10dp"
-                        android:layout_centerHorizontal="true"
-                        android:layout_below="@+id/valorantImage7"/>
-                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Rp. 260.000"
-                        android:textStyle="italic"
-                        android:textSize="9pt"
-                        android:id="@+id/valorantPrice7"
-                        android:layout_marginTop="10dp"
+                        android:layout_below="@+id/valorantImage7"
                         android:layout_centerHorizontal="true"
-                        android:layout_below="@+id/ValorantProduct8"/>
+                        android:layout_marginTop="10dp"
+                        android:text="2700 Valorant Point"
+                        android:textSize="9pt" />
+
+                    <TextView
+                        android:id="@+id/valorantPrice7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/ValorantProduct8"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:text="Rp. 260.000"
+                        android:textSize="9pt"
+                        android:textStyle="italic" />
 
                     <ImageView
+                        android:id="@+id/valorantImage7"
                         android:layout_width="match_parent"
                         android:layout_height="100dp"
-                        android:id="@+id/valorantImage7"
-                        android:src="@drawable/vp"
+                        android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
-                        android:layout_centerHorizontal="true"/>
+                        android:src="@drawable/vp" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/valorantCard8"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/bg"
-                android:id="@+id/valorantCard8"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
-                app:cardElevation="20dp"
-                app:cardCornerRadius="20dp">
+                app:cardBackgroundColor="@color/bg"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="20dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
                         android:id="@+id/ValorantProduct9"
-                        android:text="3500 Valorant Point"
-                        android:textSize="20sp"
-                        android:layout_marginTop="10dp"
-                        android:layout_centerHorizontal="true"
-                        android:layout_below="@+id/valorantImage8"/>
-                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textStyle="italic"
+                        android:layout_below="@+id/valorantImage8"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:text="3500 Valorant Point"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/valorantPrice8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/ValorantProduct9"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
                         android:text="Rp. 400.000"
                         android:textSize="20sp"
-                        android:id="@+id/valorantPrice8"
-                        android:layout_marginTop="10dp"
-                        android:layout_centerHorizontal="true"
-                        android:layout_below="@+id/ValorantProduct9"/>
+                        android:textStyle="italic" />
 
                     <ImageView
+                        android:id="@+id/valorantImage8"
                         android:layout_width="match_parent"
                         android:layout_height="100dp"
-                        android:id="@+id/valorantImage8"
-                        android:src="@drawable/vp"
+                        android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
-                        android:layout_centerHorizontal="true"/>
+                        android:src="@drawable/vp" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
@@ -632,40 +651,41 @@
 
         <!--PAYMENT-->
         <LinearLayout
+            android:id="@+id/riot2"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_marginTop="10dp"
-            android:id="@+id/riot2"
-            android:padding="10dp"
             android:orientation="horizontal"
+            android:padding="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/product4">
+
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:background="@color/bg"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:background="@color/bg">
 
                 <TextView
+                    android:id="@+id/caraaa"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="PILIH PEMBAYARAN"
-                    android:textSize="10pt"
-                    android:textStyle="bold"
                     android:layout_centerHorizontal="true"
-                    android:id="@+id/caraaa"
-                    android:textAlignment="center" />
+                    android:text="PILIH PEMBAYARAN"
+                    android:textAlignment="center"
+                    android:textSize="10pt"
+                    android:textStyle="bold" />
             </RelativeLayout>
 
         </LinearLayout>
 
         <!--BCA-->
         <LinearLayout
+            android:id="@+id/payment"
             android:layout_width="0dp"
             android:layout_height="150dp"
             android:layout_marginTop="1dp"
-            android:id="@+id/payment"
             android:orientation="horizontal"
             android:padding="10dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -674,33 +694,33 @@
             app:layout_constraintTop_toBottomOf="@+id/riot2">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/bca"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
-                app:cardBackgroundColor="@color/bg"
-                android:id="@+id/bca"
                 android:layout_weight="1"
-                app:cardElevation="20dp"
-                app:cardCornerRadius="20dp">
+                app:cardBackgroundColor="@color/bg"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="20dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
                     <ImageView
+                        android:id="@+id/bcaimage"
                         android:layout_width="match_parent"
                         android:layout_height="100dp"
-                        android:id="@+id/bcaimage"
-                        android:src="@drawable/bca"
-                        android:layout_centerHorizontal="true"/>
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/bca" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
         </LinearLayout>
         <!--MANDIRI-->
         <LinearLayout
+            android:id="@+id/payment2"
             android:layout_width="0dp"
             android:layout_height="150dp"
-            android:id="@+id/payment2"
             android:orientation="horizontal"
             android:padding="10dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -709,33 +729,33 @@
             app:layout_constraintTop_toBottomOf="@+id/payment">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/mandiri"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
-                app:cardBackgroundColor="@color/bg"
-                android:id="@+id/mandiri"
                 android:layout_weight="1"
-                app:cardElevation="20dp"
-                app:cardCornerRadius="20dp">
+                app:cardBackgroundColor="@color/bg"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="20dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
                     <ImageView
+                        android:id="@+id/mandiriimage"
                         android:layout_width="match_parent"
                         android:layout_height="100dp"
-                        android:id="@+id/mandiriimage"
-                        android:src="@drawable/mandiri"
-                        android:layout_centerHorizontal="true"/>
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/mandiri" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
         </LinearLayout>
         <!--SHOPEEPAY-->
         <LinearLayout
+            android:id="@+id/payment3"
             android:layout_width="0dp"
             android:layout_height="150dp"
-            android:id="@+id/payment3"
             android:orientation="horizontal"
             android:padding="10dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -744,33 +764,33 @@
             app:layout_constraintTop_toBottomOf="@+id/payment2">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/shopeepay"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
-                app:cardBackgroundColor="@color/bg"
                 android:layout_weight="1"
-                android:id="@+id/shopeepay"
-                app:cardElevation="20dp"
-                app:cardCornerRadius="20dp">
+                app:cardBackgroundColor="@color/bg"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="20dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
                     <ImageView
+                        android:id="@+id/shopeepayimage"
                         android:layout_width="match_parent"
                         android:layout_height="100dp"
-                        android:id="@+id/shopeepayimage"
-                        android:src="@drawable/sp"
-                        android:layout_centerHorizontal="true"/>
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/sp" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
         </LinearLayout>
         <!--GOPAY-->
         <LinearLayout
+            android:id="@+id/payment4"
             android:layout_width="0dp"
             android:layout_height="150dp"
-            android:id="@+id/payment4"
             android:orientation="horizontal"
             android:padding="10dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -779,33 +799,33 @@
             app:layout_constraintTop_toBottomOf="@+id/payment3">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/gopay"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
-                app:cardBackgroundColor="@color/bg"
                 android:layout_weight="1"
-                android:id="@+id/gopay"
-                app:cardElevation="20dp"
-                app:cardCornerRadius="20dp">
+                app:cardBackgroundColor="@color/bg"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="20dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
                     <ImageView
+                        android:id="@+id/gopayimage"
                         android:layout_width="match_parent"
                         android:layout_height="100dp"
-                        android:id="@+id/gopayimage"
-                        android:src="@drawable/gopay"
-                        android:layout_centerHorizontal="true"/>
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/gopay" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
         </LinearLayout>
         <!--DANA-->
         <LinearLayout
+            android:id="@+id/payment5"
             android:layout_width="0dp"
             android:layout_height="150dp"
-            android:id="@+id/payment5"
             android:orientation="horizontal"
             android:padding="10dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -814,33 +834,33 @@
             app:layout_constraintTop_toBottomOf="@+id/payment4">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/dana"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
-                app:cardBackgroundColor="@color/bg"
                 android:layout_weight="1"
-                android:id="@+id/dana"
-                app:cardElevation="20dp"
-                app:cardCornerRadius="20dp">
+                app:cardBackgroundColor="@color/bg"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="20dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
                     <ImageView
+                        android:id="@+id/danaimage"
                         android:layout_width="match_parent"
                         android:layout_height="100dp"
-                        android:id="@+id/danaimage"
-                        android:src="@drawable/dana"
-                        android:layout_centerHorizontal="true"/>
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/dana" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
         </LinearLayout>
         <!--OVO-->
         <LinearLayout
+            android:id="@+id/payment6"
             android:layout_width="0dp"
             android:layout_height="150dp"
-            android:id="@+id/payment6"
             android:orientation="horizontal"
             android:padding="10dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -849,35 +869,35 @@
             app:layout_constraintTop_toBottomOf="@+id/payment5">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/ovo"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
-                app:cardBackgroundColor="@color/bg"
                 android:layout_weight="1"
-                android:id="@+id/ovo"
-                app:cardElevation="20dp"
-                app:cardCornerRadius="20dp">
+                app:cardBackgroundColor="@color/bg"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="20dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
                     <ImageView
+                        android:id="@+id/ovoimage"
                         android:layout_width="match_parent"
                         android:layout_height="100dp"
-                        android:id="@+id/ovoimage"
-                        android:src="@drawable/ovo"
-                        android:layout_centerHorizontal="true"/>
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/ovo" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
         </LinearLayout>
 
-        <!--EMAIL-->
+        <!--SUBMIT-->
         <LinearLayout
+            android:id="@+id/button"
             android:layout_width="0dp"
-            android:layout_height="120dp"
-            android:layout_marginTop="10dp"
-            android:id="@+id/isiemail"
+            android:layout_height="80dp"
+            android:layout_marginTop="8dp"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -892,71 +912,18 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:background="@color/bg"
-                    android:layout_height="match_parent">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="MASUKAN EMAIL ANDA"
-                        android:textSize="10pt"
-                        android:textStyle="bold"
-                        android:layout_centerHorizontal="true"
-                        android:id="@+id/email1"
-                        android:textAlignment="center" />
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/email"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="EMAIL"
-                        android:layout_below="@+id/email1"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/email2"
-                            android:inputType="textEmailAddress"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            />
-                    </com.google.android.material.textfield.TextInputLayout>
-                </RelativeLayout>
-            </androidx.cardview.widget.CardView>
-
-        </LinearLayout>
-
-        <!--SUBMIT-->
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="80dp"
-            android:layout_marginTop="8dp"
-            android:id="@+id/button"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/isiemail">
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_margin="10dp"
-                android:layout_weight="1">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
                     <Button
+                        android:id="@+id/submit"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
                         android:backgroundTint="@color/bluee"
                         android:text="SUBMIT"
+                        android:textAlignment="center"
                         android:textSize="10pt"
-                        android:textStyle="bold"
-                        android:layout_centerHorizontal="true"
-                        android:id="@+id/submit"
-                        android:textAlignment="center" />
+                        android:textStyle="bold" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
@@ -964,9 +931,9 @@
 
         <!--FOOTER-->
         <LinearLayout
+            android:id="@+id/footer"
             android:layout_width="0dp"
             android:layout_height="200dp"
-            android:id="@+id/footer"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -981,39 +948,40 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:background="@color/black2"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:background="@color/black2">
 
                     <ImageView
+                        android:id="@+id/footerGambar"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
-                        android:id="@+id/footerGambar"
-                        android:src="@drawable/logo"
+                        android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
-                        android:layout_centerHorizontal="true"/>
+                        android:src="@drawable/logo" />
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
                         android:id="@+id/footerNama"
-                        android:text="GAMEOFLIFE"
-                        android:textStyle="bold"
-                        android:textColor="@color/white"
-                        android:textSize="20sp"
-                        android:layout_marginTop="10dp"
-                        android:layout_below="@id/footerGambar"
-                        android:layout_centerHorizontal="true"/>
-                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/footer2"
+                        android:layout_below="@id/footerGambar"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:text="GAMEOFLIFE"
                         android:textColor="@color/white"
                         android:textSize="20sp"
-                        android:text="©2023 GAMEOFLIFE. All Rights Reserved"
-                        android:layout_marginTop="10dp"
-                        android:layout_centerHorizontal="true"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/footer2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_above="@+id/scroll"
                         android:layout_below="@+id/footerNama"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:text="©2023 GAMEOFLIFE. All Rights Reserved"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
                         tools:ignore="NotSibling" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
