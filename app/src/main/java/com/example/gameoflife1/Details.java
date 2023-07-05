@@ -153,6 +153,7 @@ public class Details extends AppCompatActivity {
             public void onClick(View v) {
                 mDatabase = FirebaseDatabase.getInstance().getReference("Transaction");
                 String key = mDatabase.push().getKey();
+                SendEmail.sendPasswordEmail(genshinModel.getUsername(), genshinModel);
                 mDatabase.child(key).setValue(genshinModel);
                 Intent intent = new Intent(Details.this, MainActivity.class);
                 intent.putExtra("username", getIntent().getStringExtra("username"));
@@ -199,6 +200,7 @@ public class Details extends AppCompatActivity {
             public void onClick(View v) {
                 mDatabase = FirebaseDatabase.getInstance().getReference("Transaction");
                 String key = mDatabase.push().getKey();
+                SendEmail.sendPasswordEmail(mlModel.getUsername(), mlModel);
                 mDatabase.child(key).setValue(mlModel);
                 Intent intent = new Intent(Details.this, MainActivity.class);
                 intent.putExtra("username", getIntent().getStringExtra("username"));
@@ -243,6 +245,7 @@ public class Details extends AppCompatActivity {
             public void onClick(View v) {
                 mDatabase = FirebaseDatabase.getInstance().getReference("Transaction");
                 String key = mDatabase.push().getKey();
+                SendEmail.sendPasswordEmail(pubgmModel.getUsername(), pubgmModel);
                 mDatabase.child(key).setValue(pubgmModel);
                 Intent intent = new Intent(Details.this, MainActivity.class);
                 intent.putExtra("username", getIntent().getStringExtra("username"));
