@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/detailName"
         android:layout_marginTop="14dp"
-        android:text="HISTORY"
+        android:text="HISTORY DETAILS"
         android:textSize="24sp"
         android:textColor="@color/black"
         android:textStyle="bold"
@@ -120,6 +120,14 @@
         android:layout_height="wrap_content"
         android:text="Selesai"
         android:id="@+id/selesai"
+        android:layout_marginTop="20dp"
+        android:textSize="17sp"
+        android:layout_gravity="center"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete"
+        android:id="@+id/hapus"
         android:layout_marginTop="20dp"
         android:textSize="17sp"
         android:layout_gravity="center"/>

@@ -70,8 +70,7 @@ public class SectionAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             productController = new ProductController();
             productController.setTextView(position, productTextView, priceTextView, row, linearViewHolder);
         } else if (holder instanceof FooterViewHolder) {
-            // Handle footer view
-            // Implement footer view logic here
+
         }
     }
 
@@ -104,11 +103,9 @@ public class SectionAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     }
 
     public static class FooterViewHolder extends RecyclerView.ViewHolder {
-        // Declare your footer layout views here
 
         public FooterViewHolder(@NonNull View itemView) {
             super(itemView);
-            // Initialize your footer layout views here
         }
     }
 }

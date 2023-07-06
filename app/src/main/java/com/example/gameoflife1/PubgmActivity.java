@@ -437,6 +437,9 @@ public class PubgmActivity extends AppCompatActivity {
             }
         });
 
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.mipmap.icon2);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
     }
     public void onBackPressed() {
         Intent intent = new Intent(PubgmActivity.this, MainActivity.class);

@@ -70,6 +70,10 @@ public class HistoryActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
         controller.setAdapter(transactionModel,transactionModel.getUsername(),transactionModelList,adapter);
+
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.mipmap.icon2);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
     }
     public void onBackPressed() {
         Intent intent = new Intent(HistoryActivity.this, MainActivity.class);

@@ -649,11 +649,10 @@
         <!--BCA-->
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="150dp"
+            android:layout_height="130dp"
             android:layout_marginTop="1dp"
             android:id="@+id/payment"
             android:orientation="horizontal"
-            android:padding="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -685,10 +684,9 @@
         <!--MANDIRI-->
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="150dp"
+            android:layout_height="130dp"
             android:id="@+id/payment2"
             android:orientation="horizontal"
-            android:padding="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -720,10 +718,9 @@
         <!--SHOPEEPAY-->
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="150dp"
+            android:layout_height="130dp"
             android:id="@+id/payment3"
             android:orientation="horizontal"
-            android:padding="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -755,10 +752,9 @@
         <!--GOPAY-->
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="150dp"
+            android:layout_height="130dp"
             android:id="@+id/payment4"
             android:orientation="horizontal"
-            android:padding="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -790,10 +786,9 @@
         <!--DANA-->
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="150dp"
+            android:layout_height="130dp"
             android:id="@+id/payment5"
             android:orientation="horizontal"
-            android:padding="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -825,10 +820,9 @@
         <!--OVO-->
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="150dp"
+            android:layout_height="130dp"
             android:id="@+id/payment6"
             android:orientation="horizontal"
-            android:padding="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -862,7 +856,6 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="80dp"
-            android:layout_marginTop="8dp"
             android:id="@+id/button"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"

@@ -59,7 +59,6 @@ public class MainActivity extends AppCompatActivity {
     CardView genshin;
     CardView ml;
     CardView pubgm;
-    private Button priceList;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -115,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setIcon(R.mipmap.icon1);
+        getSupportActionBar().setIcon(R.mipmap.icon2);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
     }
 }

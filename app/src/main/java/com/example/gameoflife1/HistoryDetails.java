@@ -24,7 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class HistoryDetails extends AppCompatActivity {
     TextView username, id, game, product, payment, status;
-    Button submit;
+    Button submit, delete;
     private String key;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +38,7 @@ public class HistoryDetails extends AppCompatActivity {
         payment = findViewById(R.id.detailPayment);
         status = findViewById(R.id.detailStatus);
         submit = findViewById(R.id.selesai);
+        delete = findViewById(R.id.hapus);
 
         key = getIntent().getStringExtra("key");
 
@@ -91,5 +92,47 @@ public class HistoryDetails extends AppCompatActivity {
             }
         });
 
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String username = getIntent().getStringExtra("username");
+
+                DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("Transaction");
+
+                mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        if (dataSnapshot.exists()) {
+                            for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                                if (snapshot.getKey().equals(key)) {
+                                    // Delete the transaction from the database
+                                    snapshot.getRef().removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            Intent intent = new Intent(HistoryDetails.this, HistoryActivity.class);
+                                            intent.putExtra("username", username);
+                                            Toast.makeText(HistoryDetails.this, "Pembelian dihapus", Toast.LENGTH_SHORT).show();
+                                            startActivity(intent);
+                                        }
+                                    });
+                                }
+                            }
+                        } else {
+                            System.out.println("error");
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                        // Handle the cancellation case
+                        Toast.makeText(HistoryDetails.this, "Database error occurred", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        });
+
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.mipmap.icon2);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
     }
 }

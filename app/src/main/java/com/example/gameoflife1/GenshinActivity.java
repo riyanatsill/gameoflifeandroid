@@ -427,6 +427,10 @@ public class GenshinActivity extends AppCompatActivity {
                 card13.setCardBackgroundColor(getColor(R.color.bg));
             }
         });
+
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.mipmap.icon2);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
     }
 
     public void onBackPressed() {

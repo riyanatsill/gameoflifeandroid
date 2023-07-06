@@ -33,49 +33,6 @@ public class SendEmail {
     private static final String EMAIL_USERNAME = "riygmly@gmail.com";
     private static final String EMAIL_PASSWORD = "xcjhxwfjckosxekc";
 
-    public static void sendPasswordEmail(String recipientEmail, TransactionModel transactionModel) {
-        // Set email properties
-        Properties properties = new Properties();
-        properties.put("mail.smtp.host", EMAIL_HOST);
-        properties.put("mail.smtp.port", EMAIL_PORT);
-        properties.put("mail.smtp.auth", "true");
-        properties.put("mail.smtp.starttls.enable", "true");
-
-        // Create a session with authentication
-        Session session = Session.getInstance(properties, new javax.mail.Authenticator() {
-            protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(EMAIL_USERNAME, EMAIL_PASSWORD);
-            }
-        });
-
-        try {
-            // Create a message
-            final Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress(EMAIL_USERNAME));
-            message.setRecipient(Message.RecipientType.TO, new InternetAddress(recipientEmail));
-            message.setSubject("Details Transaction");
-            message.setText("Email: " + transactionModel.getUsername() + "\nID Game: " + transactionModel.getId()
-                    + "\nGame: " + transactionModel.getGame() + "\nProduct: " + transactionModel.getProduct() + "\nPayment: " + transactionModel.getPayment());
-
-            // Send the message on a separate thread using AsyncTask
-            new AsyncTask<Void, Void, Void>() {
-                @Override
-                protected Void doInBackground(Void... voids) {
-                    try {
-                        Transport.send(message);
-                        Log.d("EmailSender", "Email sent successfully!");
-                    } catch (MessagingException e) {
-                        e.printStackTrace();
-                        Log.e("EmailSender", "Failed to send email.");
-                    }
-                    return null;
-                }
-            }.execute();
-        } catch (MessagingException e) {
-            e.printStackTrace();
-            Log.e("EmailSender", "Failed to create or send email.");
-        }
-    }
 
     public static void sendPasswordEmail(String recipientEmail, ValorantModel valorantModel) {
         // Set email properties
