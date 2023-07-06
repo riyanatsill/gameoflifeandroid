@@ -71,36 +71,7 @@ public class RegisterActivity extends AppCompatActivity {
             getSupportActionBar().hide();
         }
     }
-}
+    public void onBackPressed() {
 
-//                    mDatabase.child("User").addListenerForSingleValueEvent(new ValueEventListener() {
-//                        @Override
-//                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                            boolean usernameExists = false;
-//                            for (DataSnapshot userSnapshot : snapshot.getChildren()) {
-//                                String username = userSnapshot.child("username").getValue(String.class);
-//                                if (username != null && username.equals(usernameTxt)) {
-//                                    usernameExists = true;
-//                                    break;
-//                                }
-//                            }
-//
-//                            if (usernameExists) {
-//                                Toast.makeText(RegisterActivity.this, "Username is Already Taken", Toast.LENGTH_SHORT).show();
-//                            } else {
-//                                DatabaseReference userRef = mDatabase.child("User").push(); // Generate unique ID
-//                                userRef.child("username").setValue(usernameTxt);
-//                                userRef.child("pass").setValue(passwordTxt);
-//                                userRef.child("email").setValue(emailTxt);
-//
-//                                Toast.makeText(RegisterActivity.this, "Registered Successfully", Toast.LENGTH_SHORT).show();
-//                                startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
-//                                finish();
-//                            }
-//                        }
-//
-//                        @Override
-//                        public void onCancelled(@NonNull DatabaseError error) {
-//                            // Handle error
-//                        }
-//                    });
+    }
+}

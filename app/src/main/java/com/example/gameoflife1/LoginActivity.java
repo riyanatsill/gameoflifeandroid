@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Patterns;
 import android.view.View;
@@ -125,32 +126,22 @@ public class LoginActivity extends AppCompatActivity {
             getSupportActionBar().hide();
         }
     }
+    boolean doubleBackToExitPressedOnce = false;
+    @Override
+    public void onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            Intent intent = new Intent(Intent.ACTION_MAIN);
+            intent.addCategory(Intent.CATEGORY_HOME);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        }
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(this,"Tekan sekali lagi untuk keluar",Toast.LENGTH_SHORT).show();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce = true;
+            }
+        },3000);
+    }
 }
-//                    mDatabase.child("User").orderByChild("username").equalTo(usernameTxt).addListenerForSingleValueEvent(new ValueEventListener() {
-//                        @Override
-//                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                            if (snapshot.exists()) {
-//                                DataSnapshot userSnapshot = snapshot.getChildren().iterator().next();
-//                                String getpassword = userSnapshot.child("pass").getValue(String.class);
-//
-//                                if (getpassword != null && getpassword.equals(passwordTxt)) {
-//                                    Toast.makeText(LoginActivity.this, "Login Successfully", Toast.LENGTH_SHORT).show();
-//
-//                                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-//                                    intent.putExtra("email", userSnapshot.child("email").getValue(String.class));
-//                                    intent.putExtra("username", usernameTxt);
-//                                    startActivity(intent);
-//                                    finish();
-//                                } else {
-//                                    Toast.makeText(LoginActivity.this, "Wrong Password", Toast.LENGTH_SHORT).show();
-//                                }
-//                            } else {
-//                                Toast.makeText(LoginActivity.this, "User not found", Toast.LENGTH_SHORT).show();
-//                            }
-//                        }
-//
-//                        @Override
-//                        public void onCancelled(@NonNull DatabaseError error) {
-//                            // Handle error
-//                        }
-//                    });

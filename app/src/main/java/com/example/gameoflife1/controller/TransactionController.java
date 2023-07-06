@@ -40,6 +40,7 @@ public class TransactionController {
                         result.setId(data.child("id").getValue(String.class));
                         result.setProduct(data.child("product").getValue(String.class));
                         result.setPayment(data.child("payment").getValue(String.class));
+                        result.setKey(data.getKey());
 
                         transactionModelList.add(result);
                     }

@@ -35,18 +35,14 @@ public class MainActivity extends AppCompatActivity {
 
         int itemId = item.getItemId();
 
-        if (itemId == R.id.profiles) {
-            Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
-            intent.putExtra("username", getIntent().getStringExtra("username"));
-            startActivity(intent);
-            return true;
-        }else if (itemId == R.id.history) {
+        if (itemId == R.id.history) {
             Intent intent = new Intent(MainActivity.this, HistoryActivity.class);
             intent.putExtra("username", getIntent().getStringExtra("username"));
             startActivity(intent);
             return true;
         }else if (itemId == R.id.priceList) {
             Intent intent = new Intent(MainActivity.this, PriceList.class);
+            intent.putExtra("username", getIntent().getStringExtra("username"));
             startActivity(intent);
             return true;
         }else if (itemId == R.id.logout) {

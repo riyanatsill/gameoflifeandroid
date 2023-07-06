@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.gameoflife1.adapter.SectionAdapter;
@@ -37,5 +38,10 @@ public class PriceList extends AppCompatActivity {
         recyclerView.setAdapter(sectionAdapter);
 
         gamesController.setSectionAdapter(sectionAdapter, gamesModelList);
+    }
+    public void onBackPressed() {
+        Intent intent = new Intent(PriceList.this, MainActivity.class);
+        intent.putExtra("username", getIntent().getStringExtra("username"));
+        startActivity(intent);
     }
 }

@@ -81,6 +81,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
                     intent.putExtra("product", transactionModelList.get(holder.getAdapterPosition()).getProduct());
                     intent.putExtra("payment", transactionModelList.get(holder.getAdapterPosition()).getPayment());
                     intent.putExtra("status", transactionModelList.get(holder.getAdapterPosition()).getStatus());
+                    intent.putExtra("key", transactionModelList.get(holder.getAdapterPosition()).getKey());
+                    intent.putExtra("tModelList", transactionModelList.get(holder.getAdapterPosition()));
                     intent.putExtra("transaction", clickedTransaction);
                     context.startActivity(intent);
                 }

@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -69,5 +70,10 @@ public class HistoryActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
         controller.setAdapter(transactionModel,transactionModel.getUsername(),transactionModelList,adapter);
+    }
+    public void onBackPressed() {
+        Intent intent = new Intent(HistoryActivity.this, MainActivity.class);
+        intent.putExtra("username", getIntent().getStringExtra("username"));
+        startActivity(intent);
     }
 }

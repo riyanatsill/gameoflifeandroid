@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.gameoflife1.controller.ProductController;
 import com.example.gameoflife1.model.ProductModel;
@@ -43,10 +44,14 @@ public class ValorantActivity extends AppCompatActivity {
         int itemId = item.getItemId();
 
         if (itemId == R.id.home) {
-            startActivity(new Intent(ValorantActivity.this, MainActivity.class));
+            Intent intent = new Intent(ValorantActivity.this, MainActivity.class);
+            intent.putExtra("username", getIntent().getStringExtra("username"));
+            startActivity(intent);
             return true;
         }else if (itemId == R.id.history) {
-            startActivity(new Intent(ValorantActivity.this, HistoryActivity.class));
+            Intent intent = new Intent(ValorantActivity.this, HistoryActivity.class);
+            intent.putExtra("username", getIntent().getStringExtra("username"));
+            startActivity(intent);
             return true;
         } else {
             return super.onOptionsItemSelected(item);
@@ -149,8 +154,6 @@ public class ValorantActivity extends AppCompatActivity {
                     productController.setTextValue(productModelList, "1", vProduct9, i, vPrice9);
                     break;
             }
-
-//            productController.setTextValue(productModelList, "1", productTextView, priceTextView, i);
         }
 
 
@@ -160,37 +163,69 @@ public class ValorantActivity extends AppCompatActivity {
                 mDatabase = FirebaseDatabase.getInstance().getReference("Product");
                 String id = riotId.getText().toString().trim();
                 String id2 = tagline.getText().toString().trim();
-                mDatabase.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        for (DataSnapshot data:snapshot.getChildren()){
-                            if (data.child("product").getValue(String.class).equals(value)){
-                                model.setPrice(data.child("price").getValue(String.class));
-                                model.setGame_id(data.child("game_id").getValue(String.class));
-                                model.setProduct(data.child("product").getValue(String.class));
+                boolean isValid = true;
+
+                if (id.isEmpty()) {
+                    Toast.makeText(ValorantActivity.this, "Please enter the Riot ID", Toast.LENGTH_SHORT).show();
+                    isValid = false;
+                }
+                else if (id.length() == 3) {
+                    Toast.makeText(ValorantActivity.this, "Min 4 Character", Toast.LENGTH_SHORT).show();
+                    isValid = false;
+                }
+                else if (id2.isEmpty()) {
+                    Toast.makeText(ValorantActivity.this, "Please enter the Tagline", Toast.LENGTH_SHORT).show();
+                    isValid = false;
+                }
+                else if (id2.length() == 3) {
+                    Toast.makeText(ValorantActivity.this, "Min 4 Character", Toast.LENGTH_SHORT).show();
+                    isValid = false;
+                }
+                else if (value == null) {
+                    Toast.makeText(ValorantActivity.this, "Please Choose the Product", Toast.LENGTH_SHORT).show();
+                    isValid = false;
+                }
+                else if (Payment == null) {
+                    Toast.makeText(ValorantActivity.this, "Please Choose the Payment", Toast.LENGTH_SHORT).show();
+                    isValid = false;
+                }
+
+                if (isValid) {
+                    mDatabase.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            for (DataSnapshot data : snapshot.getChildren()) {
+                                if (data.child("product").getValue(String.class).equals(value)) {
+                                    model.setPrice(data.child("price").getValue(String.class));
+                                    model.setGame_id(data.child("game_id").getValue(String.class));
+                                    model.setProduct(data.child("product").getValue(String.class));
+                                }
                             }
                         }
-                    }
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
 
-                    }
-                });
-                String game = "Valorant";
-                valorantModel.setEmail("Belum Selesai");
-                valorantModel.setGame("Valorant");
-                valorantModel.setProduct(value);
-                valorantModel.setTagline(id2);
-                valorantModel.setId(id);
-                valorantModel.setPayment(Payment);
-                valorantModel.setUsername(getIntent().getStringExtra("username"));
-                Intent intent = new Intent(ValorantActivity.this, Details.class);
-                intent.putExtra("ProductModel", valorantModel);
-                intent.putExtra("username",valorantModel.getUsername());
-                intent.putExtra("game", game);
-                startActivity(intent);
+                        }
+                    });
+
+                    String game = "Valorant";
+                    valorantModel.setEmail("Belum Selesai");
+                    valorantModel.setGame("Valorant");
+                    valorantModel.setProduct(value);
+                    valorantModel.setTagline(id2);
+                    valorantModel.setId(id);
+                    valorantModel.setPayment(Payment);
+                    valorantModel.setUsername(getIntent().getStringExtra("username"));
+                    Intent intent = new Intent(ValorantActivity.this, Details.class);
+                    intent.putExtra("valorantModel", valorantModel);
+                    intent.putExtra("username", valorantModel.getUsername());
+                    intent.putExtra("game", game);
+                    startActivity(intent);
+                }
+
             }
+
         });
 
         card1.setOnClickListener(new View.OnClickListener() {
@@ -414,5 +449,10 @@ public class ValorantActivity extends AppCompatActivity {
             }
         });
 
+    }
+    public void onBackPressed() {
+        Intent intent = new Intent(ValorantActivity.this, MainActivity.class);
+        intent.putExtra("username", getIntent().getStringExtra("username"));
+        startActivity(intent);
     }
 }

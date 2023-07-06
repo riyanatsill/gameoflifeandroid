@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.gameoflife1.controller.ProductController;
 import com.example.gameoflife1.model.MlModel;
@@ -43,10 +44,14 @@ public class MlActivity extends AppCompatActivity {
         int itemId = item.getItemId();
 
         if (itemId == R.id.home) {
-            startActivity(new Intent(MlActivity.this, MainActivity.class));
+            Intent intent = new Intent(MlActivity.this, MainActivity.class);
+            intent.putExtra("username", getIntent().getStringExtra("username"));
+            startActivity(intent);
             return true;
         }else if (itemId == R.id.history) {
-            startActivity(new Intent(MlActivity.this, HistoryActivity.class));
+            Intent intent = new Intent(MlActivity.this, HistoryActivity.class);
+            intent.putExtra("username", getIntent().getStringExtra("username"));
+            startActivity(intent);
             return true;
         } else {
             return super.onOptionsItemSelected(item);
@@ -161,36 +166,65 @@ public class MlActivity extends AppCompatActivity {
                 mDatabase = FirebaseDatabase.getInstance().getReference("Product");
                 String id = mlid.getText().toString().trim();
                 String id2 = zone.getText().toString().trim();
-                mDatabase.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        for (DataSnapshot data:snapshot.getChildren()){
-                            if (data.child("product").getValue(String.class).equals(value)){
-                                model.setPrice(data.child("price").getValue(String.class));
-                                model.setGame_id(data.child("game_id").getValue(String.class));
-                                model.setProduct(data.child("product").getValue(String.class));
+                boolean isValid = true;
+
+                if (id.isEmpty()) {
+                    Toast.makeText(MlActivity.this, "Please enter the ID", Toast.LENGTH_SHORT).show();
+                    isValid = false;
+                }
+                else if (id.length() == 6) {
+                    Toast.makeText(MlActivity.this, "Min 7 Character", Toast.LENGTH_SHORT).show();
+                    isValid = false;
+                }
+                else if (id2.isEmpty()) {
+                    Toast.makeText(MlActivity.this, "Please enter the Zone", Toast.LENGTH_SHORT).show();
+                    isValid = false;
+                }
+                else if (id2.length() == 3 || id2.length() >= 5) {
+                    Toast.makeText(MlActivity.this, "Zone must 4 Character (exp: 2202)", Toast.LENGTH_SHORT).show();
+                    isValid = false;
+                }
+                else if (value == null) {
+                    Toast.makeText(MlActivity.this, "Please Choose the Product", Toast.LENGTH_SHORT).show();
+                    isValid = false;
+                }
+                else if (Payment == null) {
+                    Toast.makeText(MlActivity.this, "Please Choose the Payment", Toast.LENGTH_SHORT).show();
+                    isValid = false;
+                }
+
+                if (isValid){
+                    mDatabase.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            for (DataSnapshot data:snapshot.getChildren()){
+                                if (data.child("product").getValue(String.class).equals(value)){
+                                    model.setPrice(data.child("price").getValue(String.class));
+                                    model.setGame_id(data.child("game_id").getValue(String.class));
+                                    model.setProduct(data.child("product").getValue(String.class));
+                                }
                             }
                         }
-                    }
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
 
-                    }
-                });
-                String game = "Mobile Legend";
-                mlModel.setEmail("Belum Selesai");
-                mlModel.setGame("Mobile Legend");
-                mlModel.setProduct(value);
-                mlModel.setZone(id2);
-                mlModel.setId(id);
-                mlModel.setPayment(Payment);
-                mlModel.setUsername(getIntent().getStringExtra("username"));
-                Intent intent = new Intent(MlActivity.this, Details.class);
-                intent.putExtra("username",mlModel.getUsername());
-                intent.putExtra("mlModel", mlModel);
-                intent.putExtra("game", game);
-                startActivity(intent);
+                        }
+                    });
+                    String game = "Mobile Legend";
+                    mlModel.setEmail("Belum Selesai");
+                    mlModel.setGame("Mobile Legend");
+                    mlModel.setProduct(value);
+                    mlModel.setZone(id2);
+                    mlModel.setId(id);
+                    mlModel.setPayment(Payment);
+                    mlModel.setUsername(getIntent().getStringExtra("username"));
+                    Intent intent = new Intent(MlActivity.this, Details.class);
+                    intent.putExtra("username",mlModel.getUsername());
+                    intent.putExtra("mlModel", mlModel);
+                    intent.putExtra("game", game);
+                    startActivity(intent);
+                }
             }
         });
 
@@ -415,5 +449,10 @@ public class MlActivity extends AppCompatActivity {
             }
         });
 
+    }
+    public void onBackPressed() {
+        Intent intent = new Intent(MlActivity.this, MainActivity.class);
+        intent.putExtra("username", getIntent().getStringExtra("username"));
+        startActivity(intent);
     }
 }

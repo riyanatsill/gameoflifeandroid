@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.gameoflife1.controller.ProductController;
 import com.example.gameoflife1.model.MlModel;
@@ -44,10 +45,14 @@ public class PubgmActivity extends AppCompatActivity {
         int itemId = item.getItemId();
 
         if (itemId == R.id.home) {
-            startActivity(new Intent(PubgmActivity.this, MainActivity.class));
+            Intent intent = new Intent(PubgmActivity.this, MainActivity.class);
+            intent.putExtra("username", getIntent().getStringExtra("username"));
+            startActivity(intent);
             return true;
         }else if (itemId == R.id.history) {
-            startActivity(new Intent(PubgmActivity.this, HistoryActivity.class));
+            Intent intent = new Intent(PubgmActivity.this, HistoryActivity.class);
+            intent.putExtra("username", getIntent().getStringExtra("username"));
+            startActivity(intent);
             return true;
         } else {
             return super.onOptionsItemSelected(item);
@@ -158,35 +163,56 @@ public class PubgmActivity extends AppCompatActivity {
             public void onClick(View v) {
                 mDatabase = FirebaseDatabase.getInstance().getReference("Product");
                 String id = pubgmid.getText().toString().trim();
-                mDatabase.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        for (DataSnapshot data:snapshot.getChildren()){
-                            if (data.child("product").getValue(String.class).equals(value)){
-                                model.setPrice(data.child("price").getValue(String.class));
-                                model.setGame_id(data.child("game_id").getValue(String.class));
-                                model.setProduct(data.child("product").getValue(String.class));
+                boolean isValid = true;
+
+                if (id.isEmpty()) {
+                    Toast.makeText(PubgmActivity.this, "Please enter the PUBGM ID", Toast.LENGTH_SHORT).show();
+                    isValid = false;
+                }
+                else if (id.length() == 6) {
+                    Toast.makeText(PubgmActivity.this, "Min 7 Character", Toast.LENGTH_SHORT).show();
+                    isValid = false;
+                }
+                else if (value == null) {
+                    Toast.makeText(PubgmActivity.this, "Please Choose the Product", Toast.LENGTH_SHORT).show();
+                    isValid = false;
+                }
+                else if (Payment == null) {
+                    Toast.makeText(PubgmActivity.this, "Please Choose the Payment", Toast.LENGTH_SHORT).show();
+                    isValid = false;
+                }
+
+                if (isValid){
+                    mDatabase.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            for (DataSnapshot data:snapshot.getChildren()){
+                                if (data.child("product").getValue(String.class).equals(value)){
+                                    model.setPrice(data.child("price").getValue(String.class));
+                                    model.setGame_id(data.child("game_id").getValue(String.class));
+                                    model.setProduct(data.child("product").getValue(String.class));
+                                }
                             }
                         }
-                    }
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
 
-                    }
-                });
-                String game = "PUBG Mobile";
-                pubgmModel.setEmail("Belum Selesai");
-                pubgmModel.setGame("PUBG Mobile");
-                pubgmModel.setProduct(value);
-                pubgmModel.setId(id);
-                pubgmModel.setPayment(Payment);
-                pubgmModel.setUsername(getIntent().getStringExtra("username"));
-                Intent intent = new Intent(PubgmActivity.this, Details.class);
-                intent.putExtra("username",pubgmModel.getUsername());
-                intent.putExtra("pubgmModel", pubgmModel);
-                intent.putExtra("game", game);
-                startActivity(intent);
+                        }
+                    });
+                    String game = "PUBG Mobile";
+                    pubgmModel.setEmail("Belum Selesai");
+                    pubgmModel.setGame("PUBG Mobile");
+                    pubgmModel.setProduct(value);
+                    pubgmModel.setId(id);
+                    pubgmModel.setPayment(Payment);
+                    pubgmModel.setUsername(getIntent().getStringExtra("username"));
+                    Intent intent = new Intent(PubgmActivity.this, Details.class);
+                    intent.putExtra("username",pubgmModel.getUsername());
+                    intent.putExtra("pubgmModel", pubgmModel);
+                    intent.putExtra("game", game);
+                    startActivity(intent);
+                }
             }
         });
 
@@ -411,5 +437,10 @@ public class PubgmActivity extends AppCompatActivity {
             }
         });
 
+    }
+    public void onBackPressed() {
+        Intent intent = new Intent(PubgmActivity.this, MainActivity.class);
+        intent.putExtra("username", getIntent().getStringExtra("username"));
+        startActivity(intent);
     }
 }

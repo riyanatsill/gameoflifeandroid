@@ -71,7 +71,7 @@ public class Details extends AppCompatActivity {
     public void valorant(EditText id, EditText tagline, EditText product, EditText payment, EditText price,
                          TextInputLayout id2, TextInputLayout tagline2, TextInputLayout product2,
                          TextInputLayout payment2, TextInputLayout price2, Button submit){
-        ValorantModel valorantModel = (ValorantModel) getIntent().getSerializableExtra("ProductModel");
+        ValorantModel valorantModel = (ValorantModel) getIntent().getSerializableExtra("valorantModel");
         pDatatabase = FirebaseDatabase.getInstance().getReference("Product");
         pDatatabase.addValueEventListener(new ValueEventListener() {
             @Override
@@ -106,6 +106,7 @@ public class Details extends AppCompatActivity {
             public void onClick(View v) {
                 mDatabase = FirebaseDatabase.getInstance().getReference("Transaction");
                 String key = mDatabase.push().getKey();
+                transactionModel.setKey(key);
                 SendEmail.sendPasswordEmail(valorantModel.getUsername(), valorantModel);
                 mDatabase.child(key).setValue(valorantModel);
                 Intent intent = new Intent(Details.this, MainActivity.class);
@@ -153,6 +154,7 @@ public class Details extends AppCompatActivity {
             public void onClick(View v) {
                 mDatabase = FirebaseDatabase.getInstance().getReference("Transaction");
                 String key = mDatabase.push().getKey();
+                transactionModel.setKey(key);
                 SendEmail.sendPasswordEmail(genshinModel.getUsername(), genshinModel);
                 mDatabase.child(key).setValue(genshinModel);
                 Intent intent = new Intent(Details.this, MainActivity.class);
@@ -200,6 +202,7 @@ public class Details extends AppCompatActivity {
             public void onClick(View v) {
                 mDatabase = FirebaseDatabase.getInstance().getReference("Transaction");
                 String key = mDatabase.push().getKey();
+                transactionModel.setKey(key);
                 SendEmail.sendPasswordEmail(mlModel.getUsername(), mlModel);
                 mDatabase.child(key).setValue(mlModel);
                 Intent intent = new Intent(Details.this, MainActivity.class);
@@ -245,6 +248,7 @@ public class Details extends AppCompatActivity {
             public void onClick(View v) {
                 mDatabase = FirebaseDatabase.getInstance().getReference("Transaction");
                 String key = mDatabase.push().getKey();
+                transactionModel.setKey(key);
                 SendEmail.sendPasswordEmail(pubgmModel.getUsername(), pubgmModel);
                 mDatabase.child(key).setValue(pubgmModel);
                 Intent intent = new Intent(Details.this, MainActivity.class);

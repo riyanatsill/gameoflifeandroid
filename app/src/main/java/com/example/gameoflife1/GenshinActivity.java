@@ -17,6 +17,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.gameoflife1.controller.ProductController;
 import com.example.gameoflife1.model.GenshinModel;
@@ -40,10 +41,14 @@ public class GenshinActivity extends AppCompatActivity {
         int itemId = item.getItemId();
 
         if (itemId == R.id.home) {
-            startActivity(new Intent(GenshinActivity.this, MainActivity.class));
+            Intent intent = new Intent(GenshinActivity.this, MainActivity.class);
+            intent.putExtra("username", getIntent().getStringExtra("username"));
+            startActivity(intent);
             return true;
         }else if (itemId == R.id.history) {
-            startActivity(new Intent(GenshinActivity.this, HistoryActivity.class));
+            Intent intent = new Intent(GenshinActivity.this, HistoryActivity.class);
+            intent.putExtra("username", getIntent().getStringExtra("username"));
+            startActivity(intent);
             return true;
         } else {
             return super.onOptionsItemSelected(item);
@@ -149,28 +154,48 @@ public class GenshinActivity extends AppCompatActivity {
                     productController.setTextValue(productModelList, "4", gProduct9, i, gPrice9);
                     break;
             }
-
-//            productController.setTextValue(productModelList, "1", productTextView, priceTextView, i);
         }
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String inputId = id.getText().toString();
-                String game = "Genshin";
-                genshinModel.setGame("Genshin Impact");
-                genshinModel.setEmail("Belum Selesai");
-                genshinModel.setId(inputId);
-                genshinModel.setProduct(value);
-                genshinModel.setPayment(pvalue);
-                genshinModel.setUsername(getIntent().getStringExtra("username"));
-                Log.d("server", genshinModel.getServer());
-                Log.d("pro", genshinModel.getProduct());
-                Intent intent = new Intent(GenshinActivity.this, Details.class);
-                intent.putExtra("game", game);
-                intent.putExtra("username",genshinModel.getUsername());
-                intent.putExtra("genshinModel", genshinModel);
-                startActivity(intent);
+                boolean isValid = true;
+
+                if (inputId.isEmpty()) {
+                    Toast.makeText(GenshinActivity.this, "Please enter the Genshin ID", Toast.LENGTH_SHORT).show();
+                    isValid = false;
+                }
+                else if (inputId.length() == 6) {
+                    Toast.makeText(GenshinActivity.this, "Min 7 Character", Toast.LENGTH_SHORT).show();
+                    isValid = false;
+                }
+                else if (value == null) {
+                    Toast.makeText(GenshinActivity.this, "Please Choose the Product", Toast.LENGTH_SHORT).show();
+                    isValid = false;
+                }
+                else if (pvalue == null) {
+                    Toast.makeText(GenshinActivity.this, "Please Choose the Payment", Toast.LENGTH_SHORT).show();
+                    isValid = false;
+                }
+
+                if (isValid){
+                    String game = "Genshin";
+                    genshinModel.setGame("Genshin Impact");
+                    genshinModel.setEmail("Belum Selesai");
+                    genshinModel.setId(inputId);
+                    genshinModel.setProduct(value);
+                    genshinModel.setPayment(pvalue);
+                    genshinModel.setUsername(getIntent().getStringExtra("username"));
+                    Log.d("server", genshinModel.getServer());
+                    Log.d("pro", genshinModel.getProduct());
+                    Intent intent = new Intent(GenshinActivity.this, Details.class);
+                    intent.putExtra("game", game);
+                    intent.putExtra("username",genshinModel.getUsername());
+                    intent.putExtra("genshinModel", genshinModel);
+                    startActivity(intent);
+                }
+
             }
         });
 
@@ -178,7 +203,7 @@ public class GenshinActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id){
                 String item = parent.getItemAtPosition(position).toString();
-                genshinModel.setServer(item);
+                    genshinModel.setServer(item);
             }
         });
 
@@ -323,7 +348,7 @@ public class GenshinActivity extends AppCompatActivity {
             public void onClick(View v) {
                 naon = 1;
                 card9.setCardBackgroundColor(getColor(R.color.bg2));
-                value = "BCA";
+                pvalue = "BCA";
 
                 card10.setCardBackgroundColor(getColor(R.color.bg));
                 card11.setCardBackgroundColor(getColor(R.color.bg));
@@ -402,5 +427,11 @@ public class GenshinActivity extends AppCompatActivity {
                 card13.setCardBackgroundColor(getColor(R.color.bg));
             }
         });
+    }
+
+    public void onBackPressed() {
+        Intent intent = new Intent(GenshinActivity.this, MainActivity.class);
+        intent.putExtra("username", getIntent().getStringExtra("username"));
+        startActivity(intent);
     }
 }
