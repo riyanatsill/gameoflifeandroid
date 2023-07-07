@@ -177,12 +177,15 @@ public class GenshinActivity extends AppCompatActivity {
                 else if (pvalue == null) {
                     Toast.makeText(GenshinActivity.this, "Please Choose the Payment", Toast.LENGTH_SHORT).show();
                     isValid = false;
+                }else if(autoCompleteTxt.getText().toString().trim().isEmpty()){
+                    Toast.makeText(GenshinActivity.this, "Please Choose the server", Toast.LENGTH_SHORT).show();
+                    isValid = false;
                 }
 
                 if (isValid){
                     String game = "Genshin";
                     genshinModel.setGame("Genshin Impact");
-                    genshinModel.setEmail("Belum Selesai");
+                    genshinModel.setStatus("Belum Selesai");
                     genshinModel.setId(inputId);
                     genshinModel.setProduct(value);
                     genshinModel.setPayment(pvalue);

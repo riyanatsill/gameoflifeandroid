@@ -23,13 +23,17 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 public class HistoryDetails extends AppCompatActivity {
-    TextView username, id, game, product, payment, status;
+    TextView username, id, game, product, payment, status, kode;
     Button submit, delete;
-    private String key;
+    private String key, newStatus;
+    private DatabaseReference mDatabase;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history_details);
+
+        mDatabase = FirebaseDatabase.getInstance().getReference("Transaction");
+        String newStatus = "Selesai";
 
         username = findViewById(R.id.detailUsername);
         id = findViewById(R.id.detailId);
@@ -37,6 +41,7 @@ public class HistoryDetails extends AppCompatActivity {
         product = findViewById(R.id.detailProduct);
         payment = findViewById(R.id.detailPayment);
         status = findViewById(R.id.detailStatus);
+        kode = findViewById(R.id.detailPembayaran);
         submit = findViewById(R.id.selesai);
         delete = findViewById(R.id.hapus);
 
@@ -48,16 +53,32 @@ public class HistoryDetails extends AppCompatActivity {
         product.setText(getIntent().getStringExtra("product"));
         payment.setText(getIntent().getStringExtra("payment"));
         status.setText(getIntent().getStringExtra("status"));
+        kode.setText(key);
+
+
+        mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot data: snapshot.getChildren()){
+                    if(data.getKey().equals(key) && data.child("status").getValue(String.class).equals(newStatus)){
+                        submit.setVisibility(View.GONE);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Get the new status value
-                String newStatus = "Selesai"; // Replace "New Status" with your desired new status value
+                // Replace "New Status" with your desired new status value
                 String username = getIntent().getStringExtra("username");
-
-                // Update the status value in the Firebase database
-                DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("Transaction");
 
                 mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
@@ -67,7 +88,7 @@ public class HistoryDetails extends AppCompatActivity {
                                 Log.d("key", key);
                                 if(snapshot.getKey().equals(key)){
                                     status.setText(newStatus);
-                                    mDatabase.child(key).child("email").setValue(newStatus).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    mDatabase.child(key).child("status").setValue(newStatus).addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
                                             Intent intent = new Intent(HistoryDetails.this, HistoryActivity.class);

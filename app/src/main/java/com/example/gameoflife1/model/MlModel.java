@@ -6,11 +6,20 @@ public class MlModel implements Serializable {
 
     private String product;
     private String id;
-    private String email;
+    private String status;
+
     private String game;
     private String payment;
     private String zone;
     private String username;
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     public String getProduct() {
         return product;
@@ -28,13 +37,7 @@ public class MlModel implements Serializable {
         this.id = id;
     }
 
-    public String getEmail() {
-        return email;
-    }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
     public String getGame() {
         return game;

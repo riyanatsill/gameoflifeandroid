@@ -26,6 +26,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Random;
+
 public class Details extends AppCompatActivity {
 
     private ValorantModel valorantModel = new ValorantModel();
@@ -107,6 +109,7 @@ public class Details extends AppCompatActivity {
                 mDatabase = FirebaseDatabase.getInstance().getReference("Transaction");
                 String key = mDatabase.push().getKey();
                 transactionModel.setKey(key);
+                Log.d("STATUS", valorantModel.getStatus());
                 SendEmail.sendPasswordEmail(valorantModel.getUsername(), valorantModel);
                 mDatabase.child(key).setValue(valorantModel);
                 Intent intent = new Intent(Details.this, MainActivity.class);

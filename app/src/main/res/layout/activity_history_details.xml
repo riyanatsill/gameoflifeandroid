@@ -114,6 +114,22 @@
         android:layout_marginStart="10dp"
         android:textSize="16sp"
         android:id="@+id/detailStatus"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Kode Pembayaran:"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:textSize="18sp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Status"
+        android:layout_marginStart="10dp"
+        android:textSize="16sp"
+        android:id="@+id/detailPembayaran"/>
 
     <Button
         android:layout_width="wrap_content"

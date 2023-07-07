@@ -18,6 +18,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.List;
+import java.util.Random;
 
 public class TransactionController {
     DatabaseReference mDatabase;
@@ -36,7 +37,7 @@ public class TransactionController {
                         TransactionModel result = data.getValue(TransactionModel.class);
                         result.setUsername(data.child("username").getValue(String.class));
                         result.setGame(data.child("game").getValue(String.class));
-                        result.setStatus(data.child("email").getValue(String.class));
+                        result.setStatus(data.child("status").getValue(String.class));
                         result.setId(data.child("id").getValue(String.class));
                         result.setProduct(data.child("product").getValue(String.class));
                         result.setPayment(data.child("payment").getValue(String.class));

@@ -201,7 +201,7 @@ public class PubgmActivity extends AppCompatActivity {
                         }
                     });
                     String game = "PUBG Mobile";
-                    pubgmModel.setEmail("Belum Selesai");
+                    pubgmModel.setStatus("Belum Selesai");
                     pubgmModel.setGame("PUBG Mobile");
                     pubgmModel.setProduct(value);
                     pubgmModel.setId(id);

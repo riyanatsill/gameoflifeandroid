@@ -210,7 +210,7 @@ public class ValorantActivity extends AppCompatActivity {
                     });
 
                     String game = "Valorant";
-                    valorantModel.setEmail("Belum Selesai");
+                    valorantModel.setStatus("Belum Selesai");
                     valorantModel.setGame("Valorant");
                     valorantModel.setProduct(value);
                     valorantModel.setTagline(id2);
@@ -221,6 +221,7 @@ public class ValorantActivity extends AppCompatActivity {
                     intent.putExtra("valorantModel", valorantModel);
                     intent.putExtra("username", valorantModel.getUsername());
                     intent.putExtra("game", game);
+                    Log.d("status", valorantModel.getStatus());
                     startActivity(intent);
                 }
 

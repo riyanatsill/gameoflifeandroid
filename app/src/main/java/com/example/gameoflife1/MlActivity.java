@@ -212,7 +212,7 @@ public class MlActivity extends AppCompatActivity {
                         }
                     });
                     String game = "Mobile Legend";
-                    mlModel.setEmail("Belum Selesai");
+                    mlModel.setStatus("Belum Selesai");
                     mlModel.setGame("Mobile Legend");
                     mlModel.setProduct(value);
                     mlModel.setZone(id2);
